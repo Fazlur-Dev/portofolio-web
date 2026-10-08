@@ -1240,9 +1240,14 @@ svg {
 }
 
 @media (max-width: 650px) {
+  .hero {
+    padding-bottom: 24px;
+  }
+
   .hero-container {
     width: calc(100% - 32px);
-    padding-top: 46px;
+    min-height: auto;
+    padding: 46px 0 24px;
   }
 
   .hero-title {
@@ -1268,14 +1273,35 @@ svg {
     flex-direction: column;
   }
 
+  .hero-visual {
+    width: 100%;
+    height: 315px;
+    margin-top: 24px;
+    align-items: flex-start;
+    overflow: visible;
+  }
+
   .device-scene {
     width: 720px;
+    max-width: none;
+    height: 560px;
+    flex: 0 0 720px;
 
-    transform: scale(0.58);
+    transform: scale(0.5);
     transform-origin: top center;
 
-    margin-bottom: -210px;
+    margin-bottom: -280px;
   }
+}
+
+@media (max-width: 420px) {
+  .hero-visual { height: 295px; }
+  .device-scene { transform: scale(0.47); transform-origin: top center; margin-bottom: -297px; }
+}
+
+@media (max-width: 380px) {
+  .hero-visual { height: 275px; }
+  .device-scene { transform: scale(0.43); transform-origin: top center; margin-bottom: -320px; }
 }
 /* =========================================================
    SERVICES
@@ -4079,8 +4105,10 @@ svg {
 
 @media (max-width: 800px) {
   .project-preview {
-    min-height: 780px;
+    min-height: 850px;
+    display: block;
     padding: 0;
+    overflow: hidden;
   }
 
   .project-preview-identity {
@@ -4089,8 +4117,9 @@ svg {
     top: auto;
     left: auto;
 
-    width: auto;
-    max-width: 500px;
+    z-index: 6;
+    width: 100%;
+    max-width: 520px;
 
     padding: 42px 34px 0;
   }
@@ -4100,11 +4129,13 @@ svg {
   }
 
   .project-web-mockup {
-    width: calc(100% - 45px);
-    height: 390px;
+    width: calc(100% - 68px);
+    height: 360px;
 
-    top: 280px;
-    right: -45px;
+    top: 370px;
+    left: 34px;
+    right: auto;
+    transform: none;
   }
 
   .project-web-sidebar {
@@ -4127,8 +4158,10 @@ svg {
     width: 145px;
     height: 305px;
 
-    right: 25px;
-    bottom: -30px;
+    left: auto;
+    right: 38px;
+    bottom: 18px;
+    transform: rotate(1deg);
   }
 
   .project-phone-screen {
@@ -4153,7 +4186,8 @@ svg {
 
 @media (max-width: 520px) {
   .project-preview {
-    min-height: 710px;
+    min-height: 820px;
+    border-radius: 16px;
   }
 
   .project-preview-identity {
@@ -4162,18 +4196,23 @@ svg {
       0;
   }
 
-  .project-preview-identity p {
-    max-width: 280px;
+  .project-preview-identity h3 {
+    font-size: clamp(36px, 10vw, 46px);
+  }
 
-    font-size: 12px;
+  .project-preview-identity p {
+    max-width: 100%;
+    font-size: 13px;
+    line-height: 1.65;
   }
 
   .project-web-mockup {
-    width: 118%;
-    height: 350px;
+    width: calc(100% - 32px);
+    height: 330px;
 
-    top: 270px;
-    right: -62%;
+    top: 240px;
+    left: 16px;
+    right: auto;
   }
 
   .project-web-sidebar {
@@ -4194,14 +4233,32 @@ svg {
   }
 
   .project-phone-mockup {
-    width: 140px;
-    height: 295px;
+    width: 132px;
+    height: 278px;
 
-    left: 25px;
+    left: 30px;
     right: auto;
-    bottom: -20px;
+    bottom: 18px;
+    transform: rotate(-1deg);
   }
 }
+@media (max-width: 380px) {
+  .project-preview { min-height: 790px; }
+  .project-preview-identity { padding: 30px 20px 0; }
+  .project-web-mockup {
+    width: calc(100% - 24px);
+    height: 305px;
+    top: 290px;
+    left: 12px;
+  }
+  .project-phone-mockup {
+    width: 122px;
+    height: 258px;
+    left: 24px;
+    bottom: 16px;
+  }
+}
+
 /* =========================================================
    TUAH KOPI CASE STUDY
 ========================================================= */
@@ -13910,5 +13967,50 @@ svg {
 
   .contact-page-bottom p {
     font-size: 11px;
+  }
+}
+/* =========================================================
+   CASE STUDY — SYSTEM CONNECTOR LABEL FIX
+========================================================= */
+
+.case-study-page .case-system-connector {
+  width: 145px;
+}
+
+.case-study-page .case-system-connector span {
+  flex-shrink: 0;
+  margin: 0 12px;
+
+  white-space: nowrap;
+
+  color: #55758c;
+
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 1200px) and (min-width: 901px) {
+  .case-study-page .case-system-connector {
+    width: 110px;
+  }
+
+  .case-study-page .case-system-connector span {
+    margin: 0 8px;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+  }
+}
+
+@media (max-width: 900px) {
+  .case-study-page .case-system-connector {
+    width: 1px;
+    height: 70px;
+  }
+
+  .case-study-page .case-system-connector span {
+    margin: 8px 0;
+    font-size: 9px;
+    letter-spacing: 0.08em;
   }
 }

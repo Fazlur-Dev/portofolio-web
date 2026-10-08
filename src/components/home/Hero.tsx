@@ -35,12 +35,12 @@ export default function Hero() {
           </p>
 
           <div className="hero-actions">
-            <a href="#projects" className="hero-primary">
+            <a href="/projects" className="hero-primary">
               View Projects
               <ArrowUpRight size={18} />
             </a>
 
-            <a href="#contact" className="hero-secondary">
+            <a href="/contact" className="hero-secondary">
               Let&apos;s Talk
             </a>
           </div>
