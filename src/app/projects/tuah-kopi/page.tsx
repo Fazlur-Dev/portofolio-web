@@ -1,7 +1,9 @@
+"use client";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 import {
   ArrowLeft,
   ArrowUpRight,
@@ -11,13 +13,382 @@ import {
 } from "lucide-react";
 
 export default function TuahKopiCaseStudy() {
+    const { language } = useLanguage();
+      const text = {
+    en: {
+      backToProjects: "Back to Projects",
+      featuredCaseStudy: "FEATURED CASE STUDY",
+
+      businessOperationsSystem: "BUSINESS OPERATIONS SYSTEM",
+      heroDescription:
+        "A connected mobile and web system designed to manage multi-outlet coffee shop operations from daily transactions to centralized owner monitoring.",
+
+      mobileApp: "Mobile App",
+      ownerWeb: "Owner Web",
+      cloudBackend: "Cloud Backend",
+
+      connectedOperations: "CONNECTED OPERATIONS",
+      heroVisualTitle1: "From outlet",
+      heroVisualTitle2: "to owner.",
+      heroVisualDescription:
+        "One operational ecosystem connecting everyday outlet activity with centralized business control.",
+
+      outletApp: "OUTLET APP",
+      dailyOperations: "Daily Operations",
+      realTimeData: "REAL-TIME DATA",
+      cloudInfrastructure: "Cloud Infrastructure",
+      sync: "SYNC",
+      centralizedControl: "Centralized Control",
+
+      projectOverview: "PROJECT OVERVIEW",
+      overviewTitle1: "Built around",
+      overviewTitle2: "real operations.",
+
+      overviewLead:
+        "Tuah Kopi is a custom operational system designed to connect activities across multiple coffee shop outlets with a centralized platform for business owners.",
+
+      overviewDescription:
+        "The system combines a mobile application used at outlet level with an owner web dashboard. Operational data is stored and synchronized through Firebase, allowing each outlet to work independently while keeping information accessible from one centralized system.",
+
+      role: "ROLE",
+      roleValue: "Full-Stack Developer",
+      platforms: "PLATFORMS",
+      platformsValue: "Mobile + Web",
+      year: "YEAR",
+      status: "STATUS",
+      statusValue: "Active Development",
+
+      exploreSystem: "Explore the system",
+            // 02 — THE PROBLEM
+      problemLabel: "THE PROBLEM",
+      problemTitle1: "Operations grow.",
+      problemTitle2: "Complexity",
+      problemTitleHighlight: "follows.",
+      problemDescription:
+        "Managing multiple outlets creates more than just additional transactions. It creates disconnected information, repetitive reporting, and less visibility for the business owner.",
+
+      problem1Title: "Disconnected outlet data",
+      problem1Description:
+        "Sales, expenses, stock, and other operational activities need to remain separated by outlet while still being accessible centrally.",
+
+      problem2Title: "Limited operational visibility",
+      problem2Description:
+        "Without a centralized system, understanding performance across outlets requires information to be collected and compared manually.",
+
+      problem3Title: "Growing workflow complexity",
+      problem3Description:
+        "Transactions, inventory, expenses, purchase orders, and reporting become increasingly difficult to manage as operations expand.",
+
+      // 03 — THE SOLUTION
+      solutionLabel: "THE SOLUTION",
+      solutionTitle1: "One connected",
+      solutionTitle2: "operational system.",
+      solutionDescription:
+        "Instead of treating each operational need as a separate tool, the system connects outlet activities, shared data, and owner-level management through one architecture.",
+
+      outletLevel: "OUTLET LEVEL",
+      mobileOperations: "Mobile Operations",
+      mobileOperationsDescription:
+        "Employees use the mobile application for daily operational activities including sales, expenses, inventory, and purchase-order workflows.",
+
+      dataLayer: "DATA LAYER",
+      centralizedBackend: "Centralized Backend",
+      centralizedBackendDescription:
+        "Firebase Authentication and Firestore connect the system while keeping operational data associated with the correct outlet.",
+
+      ownerLevel: "OWNER LEVEL",
+      ownerCentralizedControl: "Centralized Control",
+      ownerCentralizedControlDescription:
+        "The owner dashboard brings outlet information into one place for monitoring, analysis, purchase orders, and business-level management.",
+              // 04 — SYSTEM ARCHITECTURE
+      architectureLabel: "SYSTEM ARCHITECTURE",
+      architectureTitle1: "One backend.",
+      architectureTitle2: "Multiple",
+      architectureTitleHighlight: "touchpoints.",
+      architectureDescription:
+        "The system is designed around a shared cloud infrastructure. Outlet applications and the owner dashboard access the same operational ecosystem while outlet-specific data remains separated through outlet identity.",
+
+      outletClient: "OUTLET CLIENT",
+      outletClientDescription:
+        "Daily operational interface used independently by each outlet.",
+      sales: "Sales",
+      stock: "Stock",
+      expenses: "Expenses",
+
+      identityLayer: "IDENTITY LAYER",
+      authenticationDescription:
+        "User authentication + outlet identity",
+      authenticatedAccess: "AUTHENTICATED ACCESS",
+
+      cloudDataLayer: "CLOUD DATA LAYER",
+      firestoreDescription:
+        "Central operational database shared by the mobile application and owner web dashboard.",
+
+      ownerClient: "OWNER CLIENT",
+      ownerClientDescription:
+        "Centralized dashboard for monitoring and managing business operations.",
+      analytics: "Analytics",
+      outletsTag: "Outlets",
+      control: "Control",
+
+      outletActivity: "Outlet Activity",
+      outletActivityDescription:
+        "Operational data is created from the outlet app.",
+
+      cloudSync: "Cloud Sync",
+      cloudSyncDescription:
+        "Data is stored and synchronized through Firestore.",
+
+      ownerVisibility: "Owner Visibility",
+      ownerVisibilityDescription:
+        "Centralized data becomes available to the owner web.",
+
+      multiOutletDataModel: "MULTI-OUTLET DATA MODEL",
+      dynamicOutletIsolation: "Dynamic outlet isolation",
+      through: "through",
+      isolationDescription:
+        "Each operational record is associated with an outlet, allowing the same system architecture to support multiple locations without building separate application logic for every outlet.",
+
+      outletA: "OUTLET A",
+      outletB: "OUTLET B",
+      outletN: "OUTLET N",
+            // 05 — SALES WORKFLOW
+      salesWorkflowLabel: "SALES WORKFLOW",
+      outletToOwner: "OUTLET → OWNER",
+      salesWorkflowTitle1: "From every order",
+      salesWorkflowTitle2: "business insight.",
+      salesWorkflowDescription:
+        "Every transaction starts at the outlet and becomes part of the centralized business data available to the owner.",
+
+      outletOperations: "OUTLET OPERATIONS",
+      salesBeginTitle: "Sales begin on the mobile app.",
+      salesBeginDescription:
+        "Outlet staff record customer orders directly through the mobile application, from product selection to transaction completion.",
+
+      outletDashboard: "Outlet Dashboard",
+      productSelection: "Product Selection",
+      salesReport: "Sales Report",
+
+      centralizedData: "CENTRALIZED DATA",
+      salesSynchronized: "Sales synchronized through Firestore",
+
+      ownerVisibilityPhase: "OWNER VISIBILITY",
+      transactionPerspectiveTitle1: "One transaction.",
+      transactionPerspectiveTitle2: "Multiple perspectives.",
+      transactionPerspectiveDescription:
+        "Once synchronized, sales data becomes available across the owner dashboard for business-wide monitoring and outlet-level analysis.",
+
+      businessOverview: "Business Overview",
+      businessOverviewDescription:
+        "A centralized overview of sales performance and operational activity across the business.",
+
+      salesPerformance: "Sales Performance",
+      outletPerformance: "Outlet Performance",
+
+      orderCreated: "Order Created",
+      outletAppFlow: "Outlet App",
+
+      transactionStored: "Transaction Stored",
+      firestoreFlow: "Firestore",
+
+      dataAggregated: "Data Aggregated",
+      perOutlet: "Per Outlet",
+
+      ownerMonitoring: "Owner Monitoring",
+      ownerWebFlow: "Owner Web",
+    },
+
+    id: {
+      backToProjects: "Kembali ke Proyek",
+      featuredCaseStudy: "STUDI KASUS UNGGULAN",
+
+      businessOperationsSystem: "SISTEM OPERASIONAL BISNIS",
+      heroDescription:
+        "Sistem mobile dan web yang saling terhubung untuk mengelola operasional kedai kopi multi-outlet, mulai dari transaksi harian hingga pemantauan terpusat oleh owner.",
+
+      mobileApp: "Aplikasi Mobile",
+      ownerWeb: "Web Owner",
+      cloudBackend: "Backend Cloud",
+
+      connectedOperations: "OPERASIONAL TERHUBUNG",
+      heroVisualTitle1: "Dari outlet",
+      heroVisualTitle2: "ke owner.",
+      heroVisualDescription:
+        "Satu ekosistem operasional yang menghubungkan aktivitas harian outlet dengan kontrol bisnis terpusat.",
+
+      outletApp: "APLIKASI OUTLET",
+      dailyOperations: "Operasional Harian",
+      realTimeData: "DATA REAL-TIME",
+      cloudInfrastructure: "Infrastruktur Cloud",
+      sync: "SINKRONISASI",
+      centralizedControl: "Kontrol Terpusat",
+
+      projectOverview: "GAMBARAN PROYEK",
+      overviewTitle1: "Dibangun berdasarkan",
+      overviewTitle2: "operasional nyata.",
+
+      overviewLead:
+        "Tuah Kopi adalah sistem operasional khusus yang dirancang untuk menghubungkan aktivitas di berbagai outlet kedai kopi dengan satu platform terpusat untuk owner.",
+
+      overviewDescription:
+        "Sistem ini menggabungkan aplikasi mobile yang digunakan di tingkat outlet dengan dashboard web owner. Data operasional disimpan dan disinkronkan melalui Firebase, sehingga setiap outlet dapat bekerja secara independen sementara seluruh informasi tetap dapat diakses melalui satu sistem terpusat.",
+
+      role: "PERAN",
+      roleValue: "Full-Stack Developer",
+      platforms: "PLATFORM",
+      platformsValue: "Mobile + Web",
+      year: "TAHUN",
+      status: "STATUS",
+      statusValue: "Dalam Pengembangan Aktif",
+
+      exploreSystem: "Jelajahi sistem",
+            // 02 — THE PROBLEM
+      problemLabel: "PERMASALAHAN",
+      problemTitle1: "Operasional berkembang.",
+      problemTitle2: "Kompleksitas",
+      problemTitleHighlight: "ikut meningkat.",
+      problemDescription:
+        "Mengelola banyak outlet bukan hanya menambah jumlah transaksi. Hal ini juga menciptakan informasi yang terpisah, pelaporan berulang, dan visibilitas yang lebih terbatas bagi owner.",
+
+      problem1Title: "Data outlet yang terpisah",
+      problem1Description:
+        "Penjualan, pengeluaran, stok, dan aktivitas operasional lainnya harus tetap terpisah berdasarkan outlet, tetapi tetap dapat diakses secara terpusat.",
+
+      problem2Title: "Visibilitas operasional terbatas",
+      problem2Description:
+        "Tanpa sistem terpusat, memahami performa antar-outlet mengharuskan informasi dikumpulkan dan dibandingkan secara manual.",
+
+      problem3Title: "Alur kerja semakin kompleks",
+      problem3Description:
+        "Transaksi, stok, pengeluaran, purchase order, dan pelaporan menjadi semakin sulit dikelola ketika operasional terus berkembang.",
+
+      // 03 — THE SOLUTION
+      solutionLabel: "SOLUSI",
+      solutionTitle1: "Satu sistem",
+      solutionTitle2: "operasional terhubung.",
+      solutionDescription:
+        "Alih-alih menggunakan alat terpisah untuk setiap kebutuhan operasional, sistem ini menghubungkan aktivitas outlet, data bersama, dan pengelolaan oleh owner melalui satu arsitektur.",
+
+      outletLevel: "TINGKAT OUTLET",
+      mobileOperations: "Operasional Mobile",
+      mobileOperationsDescription:
+        "Karyawan menggunakan aplikasi mobile untuk aktivitas operasional harian, termasuk penjualan, pengeluaran, stok, dan alur purchase order.",
+
+      dataLayer: "LAPISAN DATA",
+      centralizedBackend: "Backend Terpusat",
+      centralizedBackendDescription:
+        "Firebase Authentication dan Firestore menghubungkan sistem sekaligus menjaga agar data operasional tetap terkait dengan outlet yang benar.",
+
+      ownerLevel: "TINGKAT OWNER",
+      ownerCentralizedControl: "Kontrol Terpusat",
+      ownerCentralizedControlDescription:
+        "Dashboard owner menyatukan informasi outlet dalam satu tempat untuk pemantauan, analisis, purchase order, dan pengelolaan bisnis.",
+              // 04 — SYSTEM ARCHITECTURE
+      architectureLabel: "ARSITEKTUR SISTEM",
+      architectureTitle1: "Satu backend.",
+      architectureTitle2: "Berbagai",
+      architectureTitleHighlight: "titik akses.",
+      architectureDescription:
+        "Sistem ini dirancang menggunakan infrastruktur cloud bersama. Aplikasi outlet dan dashboard owner mengakses ekosistem operasional yang sama, sementara data setiap outlet tetap dipisahkan berdasarkan identitas outlet.",
+
+      outletClient: "KLIEN OUTLET",
+      outletClientDescription:
+        "Antarmuka operasional harian yang digunakan secara independen oleh setiap outlet.",
+      sales: "Penjualan",
+      stock: "Stok",
+      expenses: "Pengeluaran",
+
+      identityLayer: "LAPISAN IDENTITAS",
+      authenticationDescription:
+        "Autentikasi pengguna + identitas outlet",
+      authenticatedAccess: "AKSES TERAUTENTIKASI",
+
+      cloudDataLayer: "LAPISAN DATA CLOUD",
+      firestoreDescription:
+        "Database operasional terpusat yang digunakan bersama oleh aplikasi mobile dan dashboard web owner.",
+
+      ownerClient: "KLIEN OWNER",
+      ownerClientDescription:
+        "Dashboard terpusat untuk memantau dan mengelola operasional bisnis.",
+      analytics: "Analitik",
+      outletsTag: "Outlet",
+      control: "Kontrol",
+
+      outletActivity: "Aktivitas Outlet",
+      outletActivityDescription:
+        "Data operasional dibuat melalui aplikasi outlet.",
+
+      cloudSync: "Sinkronisasi Cloud",
+      cloudSyncDescription:
+        "Data disimpan dan disinkronkan melalui Firestore.",
+
+      ownerVisibility: "Visibilitas Owner",
+      ownerVisibilityDescription:
+        "Data terpusat tersedia untuk diakses melalui web owner.",
+
+      multiOutletDataModel: "MODEL DATA MULTI-OUTLET",
+      dynamicOutletIsolation: "Isolasi outlet dinamis",
+      through: "melalui",
+      isolationDescription:
+        "Setiap data operasional dikaitkan dengan sebuah outlet, sehingga arsitektur sistem yang sama dapat mendukung banyak lokasi tanpa membangun logika aplikasi terpisah untuk setiap outlet.",
+
+      outletA: "OUTLET A",
+      outletB: "OUTLET B",
+      outletN: "OUTLET N",
+            // 05 — SALES WORKFLOW
+      salesWorkflowLabel: "ALUR PENJUALAN",
+      outletToOwner: "OUTLET → OWNER",
+      salesWorkflowTitle1: "Dari setiap pesanan",
+      salesWorkflowTitle2: "insight bisnis.",
+      salesWorkflowDescription:
+        "Setiap transaksi dimulai dari outlet dan menjadi bagian dari data bisnis terpusat yang dapat diakses oleh owner.",
+
+      outletOperations: "OPERASIONAL OUTLET",
+      salesBeginTitle: "Penjualan dimulai dari aplikasi mobile.",
+      salesBeginDescription:
+        "Staf outlet mencatat pesanan pelanggan langsung melalui aplikasi mobile, mulai dari pemilihan produk hingga transaksi selesai.",
+
+      outletDashboard: "Dashboard Outlet",
+      productSelection: "Pemilihan Produk",
+      salesReport: "Laporan Penjualan",
+
+      centralizedData: "DATA TERPUSAT",
+      salesSynchronized: "Penjualan disinkronkan melalui Firestore",
+
+      ownerVisibilityPhase: "VISIBILITAS OWNER",
+      transactionPerspectiveTitle1: "Satu transaksi.",
+      transactionPerspectiveTitle2: "Berbagai perspektif.",
+      transactionPerspectiveDescription:
+        "Setelah disinkronkan, data penjualan tersedia di dashboard owner untuk pemantauan bisnis secara menyeluruh dan analisis setiap outlet.",
+
+      businessOverview: "Gambaran Bisnis",
+      businessOverviewDescription:
+        "Gambaran terpusat mengenai performa penjualan dan aktivitas operasional di seluruh bisnis.",
+
+      salesPerformance: "Performa Penjualan",
+      outletPerformance: "Performa Outlet",
+
+      orderCreated: "Pesanan Dibuat",
+      outletAppFlow: "Aplikasi Outlet",
+
+      transactionStored: "Transaksi Disimpan",
+      firestoreFlow: "Firestore",
+
+      dataAggregated: "Data Diolah",
+      perOutlet: "Per Outlet",
+
+      ownerMonitoring: "Pemantauan Owner",
+      ownerWebFlow: "Web Owner",
+    },
+  }[language];
+
   return (
     <>
       <Navbar />
 
       <main className="case-study-page">
 
-        {/* HERO */}
+               {/* HERO */}
         <section className="case-hero">
           <div className="case-container">
 
@@ -26,13 +397,13 @@ export default function TuahKopiCaseStudy() {
               className="case-back"
             >
               <ArrowLeft size={15} />
-              Back to Projects
+              {text.backToProjects}
             </Link>
 
             <div className="case-eyebrow">
               <span>01</span>
               <span>/</span>
-              <span>FEATURED CASE STUDY</span>
+              <span>{text.featuredCaseStudy}</span>
             </div>
 
             <div className="case-hero-heading">
@@ -46,30 +417,27 @@ export default function TuahKopiCaseStudy() {
               </div>
 
               <div className="case-hero-summary">
-                <span>BUSINESS OPERATIONS SYSTEM</span>
+                <span>{text.businessOperationsSystem}</span>
 
                 <p>
-                  A connected mobile and web system designed
-                  to manage multi-outlet coffee shop operations
-                  from daily transactions to centralized owner
-                  monitoring.
+                  {text.heroDescription}
                 </p>
 
                 <div className="case-hero-platforms">
 
                   <div>
                     <Smartphone size={17} />
-                    Mobile App
+                    {text.mobileApp}
                   </div>
 
                   <div>
                     <Monitor size={17} />
-                    Owner Web
+                    {text.ownerWeb}
                   </div>
 
                   <div>
                     <Database size={17} />
-                    Cloud Backend
+                    {text.cloudBackend}
                   </div>
 
                 </div>
@@ -81,18 +449,16 @@ export default function TuahKopiCaseStudy() {
             <div className="case-hero-visual">
 
               <div className="case-hero-visual-copy">
-                <span>CONNECTED OPERATIONS</span>
+                <span>{text.connectedOperations}</span>
 
                 <strong>
-                  From outlet
+                  {text.heroVisualTitle1}
                   <br />
-                  to owner.
+                  {text.heroVisualTitle2}
                 </strong>
 
                 <p>
-                  One operational ecosystem connecting
-                  everyday outlet activity with centralized
-                  business control.
+                  {text.heroVisualDescription}
                 </p>
               </div>
 
@@ -101,13 +467,13 @@ export default function TuahKopiCaseStudy() {
                 <div className="case-system-node">
                   <span>01</span>
                   <Smartphone size={22} />
-                  <strong>OUTLET APP</strong>
-                  <small>Daily Operations</small>
+                  <strong>{text.outletApp}</strong>
+                  <small>{text.dailyOperations}</small>
                 </div>
 
                 <div className="case-system-connector">
                   <i />
-                  <span>REAL-TIME DATA</span>
+                  <span>{text.realTimeData}</span>
                   <i />
                 </div>
 
@@ -115,20 +481,20 @@ export default function TuahKopiCaseStudy() {
                   <span>02</span>
                   <Database size={22} />
                   <strong>FIREBASE</strong>
-                  <small>Cloud Infrastructure</small>
+                  <small>{text.cloudInfrastructure}</small>
                 </div>
 
                 <div className="case-system-connector">
                   <i />
-                  <span>SYNC</span>
+                  <span>{text.sync}</span>
                   <i />
                 </div>
 
                 <div className="case-system-node">
                   <span>03</span>
                   <Monitor size={22} />
-                  <strong>OWNER WEB</strong>
-                  <small>Centralized Control</small>
+                  <strong>{text.ownerWeb.toUpperCase()}</strong>
+                  <small>{text.centralizedControl}</small>
                 </div>
 
               </div>
@@ -146,57 +512,49 @@ export default function TuahKopiCaseStudy() {
             <div className="case-section-label">
               <span>01</span>
               <span>/</span>
-              <span>PROJECT OVERVIEW</span>
+              <span>{text.projectOverview}</span>
             </div>
 
             <div className="case-overview-grid">
 
               <div className="case-overview-title">
                 <h2>
-                  Built around
+                  {text.overviewTitle1}
                   <br />
-                  <span>real operations.</span>
+                  <span>{text.overviewTitle2}</span>
                 </h2>
               </div>
 
               <div className="case-overview-content">
 
                 <p className="case-overview-lead">
-                  Tuah Kopi is a custom operational system
-                  designed to connect activities across multiple
-                  coffee shop outlets with a centralized platform
-                  for business owners.
+                  {text.overviewLead}
                 </p>
 
                 <p>
-                  The system combines a mobile application used
-                  at outlet level with an owner web dashboard.
-                  Operational data is stored and synchronized
-                  through Firebase, allowing each outlet to work
-                  independently while keeping information
-                  accessible from one centralized system.
+                  {text.overviewDescription}
                 </p>
 
                 <div className="case-project-meta">
 
                   <div>
-                    <span>ROLE</span>
-                    <strong>Full-Stack Developer</strong>
+                    <span>{text.role}</span>
+                    <strong>{text.roleValue}</strong>
                   </div>
 
                   <div>
-                    <span>PLATFORMS</span>
-                    <strong>Mobile + Web</strong>
+                    <span>{text.platforms}</span>
+                    <strong>{text.platformsValue}</strong>
                   </div>
 
                   <div>
-                    <span>YEAR</span>
+                    <span>{text.year}</span>
                     <strong>2026</strong>
                   </div>
 
                   <div>
-                    <span>STATUS</span>
-                    <strong>Active Development</strong>
+                    <span>{text.status}</span>
+                    <strong>{text.statusValue}</strong>
                   </div>
 
                 </div>
@@ -205,7 +563,7 @@ export default function TuahKopiCaseStudy() {
                   href="#problem"
                   className="case-next-section"
                 >
-                  Explore the system
+                  {text.exploreSystem}
                   <ArrowUpRight size={16} />
                 </Link>
 
@@ -216,380 +574,357 @@ export default function TuahKopiCaseStudy() {
           </div>
         </section>
         {/* THE PROBLEM */}
-<section className="case-problem" id="problem">
-  <div className="case-container">
-
-    <div className="case-section-label">
-      <span>02</span>
-      <span>/</span>
-      <span>THE PROBLEM</span>
-    </div>
-
-    <div className="case-problem-grid">
-
-      <div className="case-problem-heading">
-        <h2>
-          Operations grow.
-          <br />
-          Complexity <span>follows.</span>
-        </h2>
-
-        <p>
-          Managing multiple outlets creates more than just
-          additional transactions. It creates disconnected
-          information, repetitive reporting, and less visibility
-          for the business owner.
-        </p>
-      </div>
-
-      <div className="case-problem-list">
-
-        <article>
-          <span>01</span>
-
-          <div>
-            <h3>Disconnected outlet data</h3>
-
-            <p>
-              Sales, expenses, stock, and other operational
-              activities need to remain separated by outlet
-              while still being accessible centrally.
-            </p>
-          </div>
-        </article>
-
-        <article>
-          <span>02</span>
-
-          <div>
-            <h3>Limited operational visibility</h3>
-
-            <p>
-              Without a centralized system, understanding
-              performance across outlets requires information
-              to be collected and compared manually.
-            </p>
-          </div>
-        </article>
-
-        <article>
-          <span>03</span>
-
-          <div>
-            <h3>Growing workflow complexity</h3>
-
-            <p>
-              Transactions, inventory, expenses, purchase
-              orders, and reporting become increasingly
-              difficult to manage as operations expand.
-            </p>
-          </div>
-        </article>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-
-{/* THE SOLUTION */}
-<section className="case-solution">
-  <div className="case-container">
-
-    <div className="case-section-label">
-      <span>03</span>
-      <span>/</span>
-      <span>THE SOLUTION</span>
-    </div>
-
-    <div className="case-solution-heading">
-
-      <h2>
-        One connected
-        <br />
-        <span>operational system.</span>
-      </h2>
-
-      <p>
-        Instead of treating each operational need as a separate
-        tool, the system connects outlet activities, shared data,
-        and owner-level management through one architecture.
-      </p>
-
-    </div>
-
-    <div className="case-solution-flow">
-
-      <article>
-        <div className="case-solution-number">01</div>
-
-        <div className="case-solution-icon">
-          <Smartphone size={23} />
-        </div>
-
-        <span>OUTLET LEVEL</span>
-
-        <h3>Mobile Operations</h3>
-
-        <p>
-          Employees use the mobile application for daily
-          operational activities including sales, expenses,
-          inventory, and purchase-order workflows.
-        </p>
-      </article>
-
-      <div className="case-solution-arrow">
-        →
-      </div>
-
-      <article>
-        <div className="case-solution-number">02</div>
-
-        <div className="case-solution-icon">
-          <Database size={23} />
-        </div>
-
-        <span>DATA LAYER</span>
-
-        <h3>Centralized Backend</h3>
-
-        <p>
-          Firebase Authentication and Firestore connect the
-          system while keeping operational data associated
-          with the correct outlet.
-        </p>
-      </article>
-
-      <div className="case-solution-arrow">
-        →
-      </div>
-
-      <article>
-        <div className="case-solution-number">03</div>
-
-        <div className="case-solution-icon">
-          <Monitor size={23} />
-        </div>
-
-        <span>OWNER LEVEL</span>
-
-        <h3>Centralized Control</h3>
-
-        <p>
-          The owner dashboard brings outlet information into
-          one place for monitoring, analysis, purchase orders,
-          and business-level management.
-        </p>
-      </article>
-
-    </div>
-
-  </div>
-</section>
-{/* SYSTEM ARCHITECTURE */}
-<section className="case-architecture" id="architecture">
-  <div className="case-container">
-
-    <div className="case-section-label">
-      <span>04</span>
-      <span>/</span>
-      <span>SYSTEM ARCHITECTURE</span>
-    </div>
-
-    <div className="case-architecture-heading">
-
-      <h2>
-        One backend.
-        <br />
-        Multiple <span>touchpoints.</span>
-      </h2>
-
-      <p>
-        The system is designed around a shared cloud infrastructure.
-        Outlet applications and the owner dashboard access the same
-        operational ecosystem while outlet-specific data remains
-        separated through outlet identity.
-      </p>
-
-    </div>
-
-
-    <div className="architecture-board">
-
-      {/* TOP */}
-      <div className="architecture-top">
-
-        <div className="architecture-client">
-          <div className="architecture-client-icon">
-            <Smartphone size={24} />
-          </div>
-
-          <span>OUTLET CLIENT</span>
-
-          <h3>Flutter App</h3>
-
-          <p>
-            Daily operational interface used independently
-            by each outlet.
-          </p>
-
-          <div className="architecture-mini-tags">
-            <span>Sales</span>
-            <span>Stock</span>
-            <span>Expenses</span>
-            <span>PO</span>
-          </div>
-        </div>
-
-
-        <div className="architecture-center">
-
-          <div className="architecture-auth">
-            <span>IDENTITY LAYER</span>
-
-            <strong>
-              Firebase Authentication
-            </strong>
-
-            <small>
-              User authentication + outlet identity
-            </small>
-          </div>
-
-
-          <div className="architecture-line architecture-line-top">
-            <i />
-            <span>AUTHENTICATED ACCESS</span>
-            <i />
-          </div>
-
-
-          <div className="architecture-database">
-
-            <div className="architecture-database-icon">
-              <Database size={27} />
+        <section className="case-problem" id="problem">
+          <div className="case-container">
+
+            <div className="case-section-label">
+              <span>02</span>
+              <span>/</span>
+              <span>{text.problemLabel}</span>
             </div>
 
-            <span>CLOUD DATA LAYER</span>
+            <div className="case-problem-grid">
 
-            <h3>Cloud Firestore</h3>
+              <div className="case-problem-heading">
+                <h2>
+                  {text.problemTitle1}
+                  <br />
+                  {text.problemTitle2}{" "}
+                  <span>{text.problemTitleHighlight}</span>
+                </h2>
 
-            <p>
-              Central operational database shared by the
-              mobile application and owner web dashboard.
-            </p>
+                <p>
+                  {text.problemDescription}
+                </p>
+              </div>
 
-            <div className="architecture-collections">
-              <span>transactions</span>
-              <span>expenses</span>
-              <span>inventory</span>
-              <span>purchaseOrders</span>
-              <span>outlets</span>
+              <div className="case-problem-list">
+
+                <article>
+                  <span>01</span>
+
+                  <div>
+                    <h3>{text.problem1Title}</h3>
+
+                    <p>
+                      {text.problem1Description}
+                    </p>
+                  </div>
+                </article>
+
+                <article>
+                  <span>02</span>
+
+                  <div>
+                    <h3>{text.problem2Title}</h3>
+
+                    <p>
+                      {text.problem2Description}
+                    </p>
+                  </div>
+                </article>
+
+                <article>
+                  <span>03</span>
+
+                  <div>
+                    <h3>{text.problem3Title}</h3>
+
+                    <p>
+                      {text.problem3Description}
+                    </p>
+                  </div>
+                </article>
+
+              </div>
+
             </div>
 
           </div>
+        </section>
 
-        </div>
 
+        {/* THE SOLUTION */}
+        <section className="case-solution">
+          <div className="case-container">
 
-        <div className="architecture-client">
-          <div className="architecture-client-icon">
-            <Monitor size={24} />
+            <div className="case-section-label">
+              <span>03</span>
+              <span>/</span>
+              <span>{text.solutionLabel}</span>
+            </div>
+
+            <div className="case-solution-heading">
+
+              <h2>
+                {text.solutionTitle1}
+                <br />
+                <span>{text.solutionTitle2}</span>
+              </h2>
+
+              <p>
+                {text.solutionDescription}
+              </p>
+
+            </div>
+
+            <div className="case-solution-flow">
+
+              <article>
+                <div className="case-solution-number">01</div>
+
+                <div className="case-solution-icon">
+                  <Smartphone size={23} />
+                </div>
+
+                <span>{text.outletLevel}</span>
+
+                <h3>{text.mobileOperations}</h3>
+
+                <p>
+                  {text.mobileOperationsDescription}
+                </p>
+              </article>
+
+              <div className="case-solution-arrow">
+                →
+              </div>
+
+              <article>
+                <div className="case-solution-number">02</div>
+
+                <div className="case-solution-icon">
+                  <Database size={23} />
+                </div>
+
+                <span>{text.dataLayer}</span>
+
+                <h3>{text.centralizedBackend}</h3>
+
+                <p>
+                  {text.centralizedBackendDescription}
+                </p>
+              </article>
+
+              <div className="case-solution-arrow">
+                →
+              </div>
+
+              <article>
+                <div className="case-solution-number">03</div>
+
+                <div className="case-solution-icon">
+                  <Monitor size={23} />
+                </div>
+
+                <span>{text.ownerLevel}</span>
+
+                <h3>{text.ownerCentralizedControl}</h3>
+
+                <p>
+                  {text.ownerCentralizedControlDescription}
+                </p>
+              </article>
+
+            </div>
+
           </div>
+        </section>
+        {/* SYSTEM ARCHITECTURE */}
+        <section className="case-architecture" id="architecture">
+          <div className="case-container">
 
-          <span>OWNER CLIENT</span>
+            <div className="case-section-label">
+              <span>04</span>
+              <span>/</span>
+              <span>{text.architectureLabel}</span>
+            </div>
 
-          <h3>Next.js Web</h3>
+            <div className="case-architecture-heading">
 
-          <p>
-            Centralized dashboard for monitoring and
-            managing business operations.
-          </p>
+              <h2>
+                {text.architectureTitle1}
+                <br />
+                {text.architectureTitle2}{" "}
+                <span>{text.architectureTitleHighlight}</span>
+              </h2>
 
-          <div className="architecture-mini-tags">
-            <span>Analytics</span>
-            <span>Outlets</span>
-            <span>PO</span>
-            <span>Control</span>
+              <p>
+                {text.architectureDescription}
+              </p>
+
+            </div>
+
+
+            <div className="architecture-board">
+
+              {/* TOP */}
+              <div className="architecture-top">
+
+                <div className="architecture-client">
+                  <div className="architecture-client-icon">
+                    <Smartphone size={24} />
+                  </div>
+
+                  <span>{text.outletClient}</span>
+
+                  <h3>Flutter App</h3>
+
+                  <p>
+                    {text.outletClientDescription}
+                  </p>
+
+                  <div className="architecture-mini-tags">
+                    <span>{text.sales}</span>
+                    <span>{text.stock}</span>
+                    <span>{text.expenses}</span>
+                    <span>PO</span>
+                  </div>
+                </div>
+
+
+                <div className="architecture-center">
+
+                  <div className="architecture-auth">
+                    <span>{text.identityLayer}</span>
+
+                    <strong>
+                      Firebase Authentication
+                    </strong>
+
+                    <small>
+                      {text.authenticationDescription}
+                    </small>
+                  </div>
+
+
+                  <div className="architecture-line architecture-line-top">
+                    <i />
+                    <span>{text.authenticatedAccess}</span>
+                    <i />
+                  </div>
+
+
+                  <div className="architecture-database">
+
+                    <div className="architecture-database-icon">
+                      <Database size={27} />
+                    </div>
+
+                    <span>{text.cloudDataLayer}</span>
+
+                    <h3>Cloud Firestore</h3>
+
+                    <p>
+                      {text.firestoreDescription}
+                    </p>
+
+                    <div className="architecture-collections">
+                      <span>transactions</span>
+                      <span>expenses</span>
+                      <span>inventory</span>
+                      <span>purchaseOrders</span>
+                      <span>outlets</span>
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div className="architecture-client">
+                  <div className="architecture-client-icon">
+                    <Monitor size={24} />
+                  </div>
+
+                  <span>{text.ownerClient}</span>
+
+                  <h3>Next.js Web</h3>
+
+                  <p>
+                    {text.ownerClientDescription}
+                  </p>
+
+                  <div className="architecture-mini-tags">
+                    <span>{text.analytics}</span>
+                    <span>{text.outletsTag}</span>
+                    <span>PO</span>
+                    <span>{text.control}</span>
+                  </div>
+                </div>
+
+              </div>
+
+
+              {/* DATA FLOW */}
+              <div className="architecture-flow">
+
+                <div>
+                  <span>01</span>
+                  <strong>{text.outletActivity}</strong>
+                  <small>
+                    {text.outletActivityDescription}
+                  </small>
+                </div>
+
+                <div className="architecture-flow-arrow">
+                  →
+                </div>
+
+                <div>
+                  <span>02</span>
+                  <strong>{text.cloudSync}</strong>
+                  <small>
+                    {text.cloudSyncDescription}
+                  </small>
+                </div>
+
+                <div className="architecture-flow-arrow">
+                  →
+                </div>
+
+                <div>
+                  <span>03</span>
+                  <strong>{text.ownerVisibility}</strong>
+                  <small>
+                    {text.ownerVisibilityDescription}
+                  </small>
+                </div>
+
+              </div>
+
+
+              {/* OUTLET ISOLATION */}
+              <div className="architecture-isolation">
+
+                <div>
+                  <span>{text.multiOutletDataModel}</span>
+
+                  <strong>
+                    {text.dynamicOutletIsolation}
+                    <br />
+                    {text.through} <em>outletId</em>.
+                  </strong>
+                </div>
+
+                <p>
+                  {text.isolationDescription}
+                </p>
+
+                <div className="architecture-outlets">
+                  <span>{text.outletA}</span>
+                  <i />
+                  <span>{text.outletB}</span>
+                  <i />
+                  <span>{text.outletN}</span>
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
-        </div>
-
-      </div>
-
-
-      {/* DATA FLOW */}
-      <div className="architecture-flow">
-
-        <div>
-          <span>01</span>
-          <strong>Outlet Activity</strong>
-          <small>
-            Operational data is created from the outlet app.
-          </small>
-        </div>
-
-        <div className="architecture-flow-arrow">
-          →
-        </div>
-
-        <div>
-          <span>02</span>
-          <strong>Cloud Sync</strong>
-          <small>
-            Data is stored and synchronized through Firestore.
-          </small>
-        </div>
-
-        <div className="architecture-flow-arrow">
-          →
-        </div>
-
-        <div>
-          <span>03</span>
-          <strong>Owner Visibility</strong>
-          <small>
-            Centralized data becomes available to the owner web.
-          </small>
-        </div>
-
-      </div>
-
-
-      {/* OUTLET ISOLATION */}
-      <div className="architecture-isolation">
-
-        <div>
-          <span>MULTI-OUTLET DATA MODEL</span>
-
-          <strong>
-            Dynamic outlet isolation
-            through <em>outletId</em>.
-          </strong>
-        </div>
-
-        <p>
-          Each operational record is associated with an outlet,
-          allowing the same system architecture to support multiple
-          locations without building separate application logic for
-          every outlet.
-        </p>
-
-        <div className="architecture-outlets">
-          <span>OUTLET A</span>
-          <i />
-          <span>OUTLET B</span>
-          <i />
-          <span>OUTLET N</span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
+        </section>
 {/* SALES WORKFLOW */}
 <section className="case-sales" id="sales">
   <div className="case-container">
@@ -597,28 +932,25 @@ export default function TuahKopiCaseStudy() {
     <div className="case-section-label">
       <span>05</span>
       <span>/</span>
-      <span>SALES WORKFLOW</span>
+      <span>{text.salesWorkflowLabel}</span>
     </div>
 
     <div className="sales-heading">
       <div>
-        <span className="sales-kicker">OUTLET → OWNER</span>
+        <span className="sales-kicker">{text.outletToOwner}</span>
 
         <h2>
-          From every order
-          <br />
-          to <span>business insight.</span>
-        </h2>
+  {text.salesWorkflowTitle1}
+  <br />
+  <span>{text.salesWorkflowTitle2}</span>
+    {language === "en" ? "to " : "menjadi "}
+  <span>{text.salesWorkflowTitle2}</span>
+</h2>
       </div>
-
-      <p>
-        Sales begin at outlet level. Each transaction recorded
-        through the mobile application becomes part of the
-        centralized data used by the owner dashboard for
-        monitoring sales, revenue, products, and outlet performance.
-      </p>
+<p>
+  {text.salesWorkflowDescription}
+</p>
     </div>
-
 
     {/* =====================================================
         PHASE 01 — OUTLET APP
@@ -630,25 +962,22 @@ export default function TuahKopiCaseStudy() {
         <div className="sales-phase-number">01</div>
 
         <div>
-          <span>OUTLET OPERATIONS</span>
-          <h3>Sales begin on the mobile app.</h3>
+          <span>{text.outletOperations}</span>
+          <h3>{text.salesBeginTitle}</h3>
         </div>
 
-        <p>
-          Staff access the outlet dashboard, select products,
-          complete an order, and the resulting sales data becomes
-          available in the outlet&apos;s transaction records.
-        </p>
+<p>
+  {text.salesBeginDescription}
+</p>
       </div>
-
 
       <div className="sales-mobile-showcase">
 
         <div className="sales-phone sales-phone-secondary">
-          <div className="sales-phone-label">
-            <span>01</span>
-            Outlet Dashboard
-          </div>
+<div className="sales-phone-label">
+  <span>01</span>
+  {text.outletDashboard}
+</div>
 
           <div className="sales-phone-frame">
             <Image
@@ -662,10 +991,10 @@ export default function TuahKopiCaseStudy() {
 
 
         <div className="sales-phone sales-phone-main">
-          <div className="sales-phone-label">
-            <span>02</span>
-            Product Selection
-          </div>
+<div className="sales-phone-label">
+  <span>02</span>
+  {text.productSelection}
+</div>
 
           <div className="sales-phone-frame">
             <Image
@@ -679,10 +1008,10 @@ export default function TuahKopiCaseStudy() {
 
 
         <div className="sales-phone sales-phone-secondary">
-          <div className="sales-phone-label">
-            <span>03</span>
-            Sales Report
-          </div>
+<div className="sales-phone-label">
+  <span>03</span>
+  {text.salesReport}
+</div>
 
           <div className="sales-phone-frame">
             <Image
@@ -713,8 +1042,8 @@ export default function TuahKopiCaseStudy() {
         </div>
 
         <div>
-          <span>CENTRALIZED DATA</span>
-          <strong>Sales synchronized through Firestore</strong>
+          <span>{text.centralizedData}</span>
+          <strong>{text.salesSynchronized}</strong>
         </div>
       </div>
 
@@ -733,15 +1062,16 @@ export default function TuahKopiCaseStudy() {
         <div className="sales-phase-number">02</div>
 
         <div>
-          <span>OWNER VISIBILITY</span>
-          <h3>One transaction. Multiple perspectives.</h3>
+          <span>{text.ownerVisibilityPhase}</span>
+          <h3>
+  {text.transactionPerspectiveTitle1}{" "}
+  {text.transactionPerspectiveTitle2}
+</h3>
         </div>
 
-        <p>
-          The same operational data can be viewed at business,
-          sales, and individual outlet level through the
-          centralized owner dashboard.
-        </p>
+<p>
+  {text.transactionPerspectiveDescription}
+</p>
       </div>
 
 
@@ -750,14 +1080,14 @@ export default function TuahKopiCaseStudy() {
         <article className="sales-web-featured">
           <div className="sales-web-caption">
             <div>
-              <span>04 / OWNER DASHBOARD</span>
-              <strong>Business Overview</strong>
+              <span>
+  04 / {language === "en" ? "OWNER DASHBOARD" : "DASHBOARD OWNER"}
+</span>
+              <strong>{text.businessOverview}</strong>
             </div>
-
-            <p>
-              Revenue, transactions, expenses, growth,
-              and monthly performance in one view.
-            </p>
+<p>
+  {text.businessOverviewDescription}
+</p>
           </div>
 
           <div className="sales-browser">
@@ -786,8 +1116,10 @@ export default function TuahKopiCaseStudy() {
           <article>
             <div className="sales-web-caption">
               <div>
-                <span>05 / SALES</span>
-                <strong>Sales Performance</strong>
+                <span>
+  05 / {language === "en" ? "SALES" : "PENJUALAN"}
+</span>
+                <strong>{text.salesPerformance}</strong>
               </div>
             </div>
 
@@ -815,8 +1147,10 @@ export default function TuahKopiCaseStudy() {
           <article>
             <div className="sales-web-caption">
               <div>
-                <span>06 / OUTLET DETAIL</span>
-                <strong>Outlet Performance</strong>
+                <span>
+  06 / {language === "en" ? "OUTLET DETAIL" : "DETAIL OUTLET"}
+</span>
+                <strong>{text.outletPerformance}</strong>
               </div>
             </div>
 
@@ -855,32 +1189,32 @@ export default function TuahKopiCaseStudy() {
 
       <div>
         <span>01</span>
-        <strong>Order Created</strong>
-        <small>Outlet App</small>
+        <strong>{text.orderCreated}</strong>
+        <small>{text.outletAppFlow}</small>
       </div>
 
       <i>→</i>
 
       <div>
         <span>02</span>
-        <strong>Transaction Stored</strong>
-        <small>Firestore</small>
+        <strong>{text.transactionStored}</strong>
+        <small>{text.firestoreFlow}</small>
       </div>
 
       <i>→</i>
 
       <div>
         <span>03</span>
-        <strong>Data Aggregated</strong>
-        <small>Per Outlet</small>
+        <strong>{text.dataAggregated}</strong>
+        <small>{text.perOutlet}</small>
       </div>
 
       <i>→</i>
 
       <div>
         <span>04</span>
-        <strong>Owner Monitoring</strong>
-        <small>Owner Web</small>
+        <strong>{text.ownerMonitoring}</strong>
+        <small>{text.ownerWebFlow}s</small>
       </div>
 
     </div>
@@ -894,26 +1228,31 @@ export default function TuahKopiCaseStudy() {
     <div className="case-section-label">
       <span>06</span>
       <span>/</span>
-      <span>PURCHASE ORDER WORKFLOW</span>
+      <span>
+  {language === "en" ? "PURCHASE ORDER WORKFLOW" : "ALUR PURCHASE ORDER"}
+</span>
     </div>
 
     <div className="po-heading">
       <div>
-        <span className="po-kicker">OUTLET ↔ OWNER</span>
+        <span className="po-kicker">
+  {language === "en" ? "OUTLET ↔ OWNER" : "OUTLET ↔ OWNER"}
+</span>
 
         <h2>
-          A complete PO journey,
+          {language === "en" ? "A complete PO journey," : "Perjalanan PO yang lengkap,"}
           <br />
-          <span>from request to invoice.</span>
+          <span>
+  {language === "en" ? "from request to invoice." : "dari pengajuan hingga invoice."}
+</span>
         </h2>
       </div>
 
-      <p>
-        Purchase orders connect outlet requirements with centralized
-        owner control. The workflow covers submission, processing,
-        monitoring, status tracking, and final purchase documentation
-        through one connected system.
-      </p>
+<p>
+  {language === "en"
+    ? "Purchase orders connect outlet requirements with centralized owner control. The workflow covers submission, processing, monitoring, status tracking, and final purchase documentation through one connected system."
+    : "Purchase order menghubungkan kebutuhan outlet dengan kontrol terpusat oleh owner. Alurnya mencakup pengajuan, pemrosesan, pemantauan, pelacakan status, hingga dokumentasi pembelian akhir dalam satu sistem yang terhubung."}
+</p>
     </div>
 
 
@@ -927,15 +1266,21 @@ export default function TuahKopiCaseStudy() {
         <div className="po-stage-number">01</div>
 
         <div>
-          <span>OUTLET APP</span>
-          <h3>Request & track purchase orders.</h3>
+          <span>
+  {language === "en" ? "OUTLET APP" : "APLIKASI OUTLET"}
+</span>
+          <h3>
+  {language === "en"
+    ? "Request & track purchase orders."
+    : "Ajukan & pantau purchase order."}
+</h3>
         </div>
 
-        <p>
-          The outlet starts the process from the mobile application,
-          submits its requirements, and can continue monitoring the
-          order as it moves through the PO workflow.
-        </p>
+<p>
+  {language === "en"
+    ? "The outlet starts the process from the mobile application, submits its requirements, and can continue monitoring the order as it moves through the PO workflow."
+    : "Outlet memulai proses melalui aplikasi mobile, mengajukan kebutuhannya, dan dapat terus memantau pesanan selama berjalan melalui alur PO."}
+</p>
       </div>
 
 
@@ -945,7 +1290,9 @@ export default function TuahKopiCaseStudy() {
           <div className="po-step-meta">
             <span>01</span>
             <div>
-              <small>REQUEST</small>
+              <small>
+  {language === "en" ? "REQUEST" : "PENGAJUAN"}
+</small>
               <strong>Pengajuan PO</strong>
             </div>
           </div>
@@ -962,7 +1309,9 @@ export default function TuahKopiCaseStudy() {
 
 
         <div className="po-journey-arrow">
-          <span>SUBMIT</span>
+          <span>
+  {language === "en" ? "SUBMIT" : "KIRIM"}
+</span>
           <i>→</i>
         </div>
 
@@ -971,7 +1320,9 @@ export default function TuahKopiCaseStudy() {
           <div className="po-step-meta">
             <span>02</span>
             <div>
-              <small>PROCESS</small>
+              <small>
+  {language === "en" ? "PROCESS" : "PROSES"}
+</small>
               <strong>Proses PO</strong>
             </div>
           </div>
@@ -988,7 +1339,9 @@ export default function TuahKopiCaseStudy() {
 
 
         <div className="po-journey-arrow">
-          <span>TRACK</span>
+          <span>
+  {language === "en" ? "TRACK" : "LACAK"}
+</span>
           <i>→</i>
         </div>
 
@@ -997,7 +1350,9 @@ export default function TuahKopiCaseStudy() {
           <div className="po-step-meta">
             <span>03</span>
             <div>
-              <small>MONITOR</small>
+              <small>
+  {language === "en" ? "MONITOR" : "PANTAU"}
+</small>
               <strong>Pantau PO</strong>
             </div>
           </div>
@@ -1024,8 +1379,12 @@ export default function TuahKopiCaseStudy() {
     <div className="po-transition">
 
       <div className="po-transition-side">
-        <span>OUTLET APP</span>
-        <strong>PO Request</strong>
+        <span>
+  {language === "en" ? "OUTLET APP" : "APLIKASI OUTLET"}
+</span>
+        <strong>
+  {language === "en" ? "PO Request" : "Pengajuan PO"}
+</strong>
       </div>
 
       <div className="po-transition-path">
@@ -1037,8 +1396,12 @@ export default function TuahKopiCaseStudy() {
       </div>
 
       <div className="po-transition-side po-transition-side-right">
-        <span>OWNER WEB</span>
-        <strong>Centralized Processing</strong>
+        <span>
+  {language === "en" ? "OWNER WEB" : "WEB OWNER"}
+</span>
+        <strong>
+  {language === "en" ? "Centralized Processing" : "Pemrosesan Terpusat"}
+</strong>
       </div>
 
     </div>
@@ -1054,15 +1417,19 @@ export default function TuahKopiCaseStudy() {
         <div className="po-stage-number">02</div>
 
         <div>
-          <span>OWNER WEB</span>
-          <h3>Monitor, track & complete the order.</h3>
+          <span>
+  {language === "en" ? "OWNER WEB" : "WEB OWNER"}
+</span>
+          <h3>
+  {language === "en" ? "Monitor, track & complete the order." : "Pantau, lacak & selesaikan pesanan."}
+</h3>
         </div>
 
-        <p>
-          Submitted purchase orders become available on the owner
-          platform, providing centralized visibility throughout
-          processing and final documentation.
-        </p>
+<p>
+  {language === "en"
+    ? "Submitted purchase orders become available on the owner platform, providing centralized visibility throughout processing and final documentation."
+    : "Purchase order yang telah diajukan akan tersedia di platform owner, memberikan visibilitas terpusat selama proses berlangsung hingga dokumentasi akhir."}
+</p>
       </div>
 
 
@@ -1072,15 +1439,21 @@ export default function TuahKopiCaseStudy() {
         <article className="po-owner-featured">
 
           <div className="po-owner-copy">
-            <span>04 / MONITORING</span>
+            <span>
+  04 / {language === "en" ? "MONITORING" : "PEMANTAUAN"}
+</span>
 
-            <h4>Central PO monitoring.</h4>
+            <h4>
+  {language === "en"
+    ? "Central PO monitoring."
+    : "Pemantauan PO terpusat."}
+</h4>
 
-            <p>
-              Incoming purchase orders can be monitored from the
-              owner platform together with their current operational
-              status.
-            </p>
+<p>
+  {language === "en"
+    ? "Incoming purchase orders can be monitored from the owner platform together with their current operational status."
+    : "Purchase order yang masuk dapat dipantau melalui platform owner beserta status operasionalnya saat ini."}
+</p>
           </div>
 
           <div className="po-browser">
@@ -1135,31 +1508,43 @@ export default function TuahKopiCaseStudy() {
             <div className="po-final-copy-item po-final-copy-tracking">
               <div className="po-final-meta po-final-meta-left">
                 <span className="po-final-arrow">←</span>
-                <span>05 / TRACKING</span>
+                <span>
+  05 / {language === "en" ? "TRACKING" : "PELACAKAN"}
+</span>
               </div>
 
-              <h4>Track every stage.</h4>
+              <h4>
+  {language === "en"
+    ? "Track every stage."
+    : "Lacak setiap tahap."}
+</h4>
 
-              <p>
-                Order progress remains visible as the PO moves through
-                its operational lifecycle, allowing both sides of the
-                system to follow its current state.
-              </p>
+<p>
+  {language === "en"
+    ? "Order progress remains visible as the PO moves through its operational lifecycle, allowing both sides of the system to follow its current state."
+    : "Perkembangan pesanan tetap dapat dipantau selama PO melalui setiap tahap operasionalnya, sehingga kedua sisi sistem dapat mengetahui status terkininya."}
+</p>
             </div>
 
 
             <div className="po-final-copy-item po-final-copy-documentation">
               <div className="po-final-meta po-final-meta-right">
-                <span>06 / DOCUMENTATION</span>
+                <span>
+  06 / {language === "en" ? "DOCUMENTATION" : "DOKUMENTASI"}
+</span>
                 <span className="po-final-arrow">→</span>
               </div>
 
-              <h4>Final purchase documentation.</h4>
+              <h4>
+  {language === "en"
+    ? "Final purchase documentation."
+    : "Dokumentasi pembelian akhir."}
+</h4>
 
               <p>
-                The workflow concludes with structured purchase
-                documentation, keeping the completed PO connected
-                with its operational history.
+                {language === "en"
+                  ? "The workflow concludes with structured purchase documentation, keeping the completed PO connected with its operational history."
+                  : "Alur kerja diakhiri dengan dokumentasi pembelian yang terstruktur, menjaga PO yang selesai terhubung dengan riwayat operasionalnya."}
               </p>
             </div>
 
@@ -1201,59 +1586,88 @@ export default function TuahKopiCaseStudy() {
     <div className="po-lifecycle">
 
       <div className="po-lifecycle-heading">
-        <span>PO LIFECYCLE</span>
-        <strong>One request. One traceable process.</strong>
+        <span>
+  {language === "en" ? "PO LIFECYCLE" : "SIKLUS PO"}
+</span>
+        <strong>
+  {language === "en"
+    ? "One request. One traceable process."
+    : "Satu pengajuan. Satu proses yang dapat dilacak."}
+</strong>
       </div>
 
       <div className="po-lifecycle-flow">
 
         <div>
           <span>01</span>
-          <strong>Submitted</strong>
-          <small>Outlet App</small>
+          <strong>
+  {language === "en" ? "Submitted" : "Diajukan"}
+</strong>
+<small>
+  {language === "en" ? "Outlet App" : "Aplikasi Outlet"}
+</small>
         </div>
 
         <i>→</i>
 
         <div>
           <span>02</span>
-          <strong>Waiting</strong>
-          <small>Owner Review</small>
+<strong>
+  {language === "en" ? "Waiting" : "Menunggu"}
+</strong>
+<small>
+  {language === "en" ? "Owner Review" : "Review Owner"}
+</small>
         </div>
 
         <i>→</i>
 
         <div>
           <span>03</span>
-          <strong>Processed</strong>
-          <small>Owner Web</small>
+<strong>
+  {language === "en" ? "Processed" : "Diproses"}
+</strong>
+<small>
+  {language === "en" ? "Owner Web" : "Web Owner"}
+</small>
         </div>
 
         <i>→</i>
 
         <div>
           <span>04</span>
-          <strong>Shipped</strong>
-          <small>Order Progress</small>
+<strong>
+  {language === "en" ? "Shipped" : "Dikirim"}
+</strong>
+<small>
+  {language === "en" ? "Order Progress" : "Progres Pesanan"}
+</small>
         </div>
 
         <i>→</i>
 
         <div>
           <span>05</span>
-          <strong>Completed</strong>
-          <small>PO History</small>
+          <strong>
+  {language === "en" ? "Completed" : "Selesai"}
+</strong>
+          <small>
+  {language === "en" ? "PO History" : "Riwayat PO"}
+</small>
         </div>
 
       </div>
 
       <div className="po-system-rule">
-        <span>SYSTEM RULE</span>
+        <span>
+  {language === "en" ? "SYSTEM RULE" : "ATURAN SISTEM"}
+</span>
 
-        <p>
-          Purchase orders that remain unprocessed for seven days
-          are automatically cancelled by the system.
-        </p>
+<p>
+  {language === "en"
+    ? "Purchase orders that remain unprocessed for seven days are automatically cancelled by the system."
+    : "Purchase order yang tidak diproses selama tujuh hari akan dibatalkan secara otomatis oleh sistem."}
+</p>
       </div>
 
     </div>
@@ -1267,28 +1681,37 @@ export default function TuahKopiCaseStudy() {
     <div className="case-section-label">
       <span>07</span>
       <span>/</span>
-      <span>STOCK & PRICING CONTROL</span>
+      <span>
+  {language === "en"
+    ? "STOCK & PRICING CONTROL"
+    : "KONTROL STOK & HARGA"}
+</span>
     </div>
 
     <div className="control-heading">
 
       <div>
-        <span className="control-kicker">OPERATIONAL CONTROL</span>
+        <span className="control-kicker">
+  {language === "en"
+    ? "OPERATIONAL CONTROL"
+    : "KONTROL OPERASIONAL"}
+</span>
 
-        <h2>
-          Monitor stock.
-          <br />
-          Control <span>pricing.</span>
-        </h2>
+<h2>
+  {language === "en" ? "Monitor stock." : "Pantau stok."}
+  <br />
+  {language === "en" ? "Control " : "Kelola "}
+  <span>
+    {language === "en" ? "pricing." : "harga."}
+  </span>
+</h2>
       </div>
 
-      <p>
-        Beyond sales and purchase orders, the system connects
-        operational stock information with centralized owner
-        controls, giving the business visibility over materials
-        while keeping product pricing manageable from the owner
-        platform.
-      </p>
+<p>
+  {language === "en"
+    ? "Beyond sales and purchase orders, the system connects operational stock information with centralized owner controls, giving the business visibility over materials while keeping product pricing manageable from the owner platform."
+    : "Selain penjualan dan purchase order, sistem menghubungkan informasi stok operasional dengan kontrol terpusat oleh owner, memberikan visibilitas terhadap persediaan sekaligus memungkinkan harga produk dikelola melalui platform owner."}
+</p>
 
     </div>
 
@@ -1306,16 +1729,19 @@ export default function TuahKopiCaseStudy() {
         </div>
 
         <div>
-          <span>STOCK VISIBILITY</span>
-          <h3>From outlet stock to owner monitoring.</h3>
+          <span>
+  {language === "en" ? "STOCK VISIBILITY" : "VISIBILITAS STOK"}
+</span>
+          <h3>
+  {language === "en" ? "From outlet stock to owner monitoring." : "Dari stok outlet hingga pemantauan owner."}
+</h3>
         </div>
 
-        <p>
-          Stock information recorded at outlet level becomes
-          visible through the centralized owner platform,
-          allowing material availability to be monitored
-          without checking each outlet independently.
-        </p>
+<p>
+  {language === "en"
+    ? "Stock information recorded by the outlet becomes part of the shared operational data, allowing the owner to monitor material availability across the system."
+    : "Informasi stok yang dicatat oleh outlet menjadi bagian dari data operasional bersama, sehingga owner dapat memantau ketersediaan bahan melalui sistem."}
+</p>
 
       </div>
 
@@ -1327,8 +1753,12 @@ export default function TuahKopiCaseStudy() {
         <article className="control-app">
 
           <div className="control-image-label">
-            <span>01 / OUTLET APP</span>
-            <strong>Stock Status</strong>
+            <span>
+  01 / {language === "en" ? "OUTLET APP" : "APLIKASI OUTLET"}
+</span>
+            <strong>
+  {language === "en" ? "Stock Status" : "Status Stok"}
+</strong>
           </div>
 
           <div className="control-phone-frame">
@@ -1352,11 +1782,11 @@ export default function TuahKopiCaseStudy() {
           <div className="control-flow-node">
             <Database size={18} />
 
-            <span>
-              STOCK
-              <br />
-              DATA
-            </span>
+<span>
+  {language === "en" ? "STOCK" : "DATA"}
+  <br />
+  {language === "en" ? "DATA" : "STOK"}
+</span>
           </div>
 
           <div className="control-flow-line" />
@@ -1369,8 +1799,12 @@ export default function TuahKopiCaseStudy() {
         <article className="control-owner-stock">
 
           <div className="control-image-label">
-            <span>02 / OWNER WEB</span>
-            <strong>Raw Material Monitoring</strong>
+            <span>
+  02 / {language === "en" ? "OWNER WEB" : "WEB OWNER"}
+</span>
+            <strong>
+  {language === "en" ? "Raw Material Monitoring" : "Pemantauan Bahan Baku"}
+</strong>
           </div>
 
           <div className="control-browser">
@@ -1418,15 +1852,21 @@ export default function TuahKopiCaseStudy() {
         </div>
 
         <div>
-          <span>CENTRALIZED MANAGEMENT</span>
-          <h3>Product pricing from one place.</h3>
+          <span>
+  {language === "en"
+    ? "CENTRALIZED MANAGEMENT"
+    : "MANAJEMEN TERPUSAT"}
+</span>
+          <h3>
+  {language === "en" ? "Product pricing from one place." : "Kelola harga produk dari satu tempat."}
+</h3>
         </div>
 
-        <p>
-          Product pricing can be managed from the owner
-          platform, providing a centralized control point
-          for operational product configuration.
-        </p>
+<p>
+  {language === "en"
+    ? "Product pricing can be managed from the owner platform, providing a centralized control point for operational product configuration."
+    : "Harga produk dapat dikelola melalui platform owner, sehingga konfigurasi produk operasional dapat dikontrol secara terpusat."}
+</p>
 
       </div>
 
@@ -1435,19 +1875,23 @@ export default function TuahKopiCaseStudy() {
 
         <div className="control-pricing-copy">
 
-  <span>DYNAMIC PRICING SYSTEM</span>
+<span>
+  {language === "en"
+    ? "DYNAMIC PRICING SYSTEM"
+    : "SISTEM HARGA DINAMIS"}
+</span>
 
-  <h4>
-    One pricing system.
-    <br />
-    Two control modes.
-  </h4>
+<h4>
+  {language === "en" ? "One pricing system." : "Satu sistem harga."}
+  <br />
+  {language === "en" ? "Two control modes." : "Dua mode kontrol."}
+</h4>
 
-  <p>
-    Product pricing is synchronized between the owner platform
-    and outlet application, while scheduled pricing rules can
-    automatically apply event prices at predefined times.
-  </p>
+<p>
+  {language === "en"
+    ? "Product pricing is synchronized between the owner platform and outlet application, while scheduled pricing rules can automatically apply event prices at predefined times."
+    : "Harga produk disinkronkan antara platform owner dan aplikasi outlet, sementara aturan harga terjadwal dapat menerapkan harga event secara otomatis pada waktu yang telah ditentukan."}
+</p>
 
   <div className="control-pricing-points">
 
@@ -1455,9 +1899,15 @@ export default function TuahKopiCaseStudy() {
       <span>01</span>
 
       <p>
-        <strong>Owner-Controlled Pricing</strong>
-        Prices changed from the owner web are automatically
-        reflected in the outlet application.
+<strong>
+  {language === "en"
+    ? "Owner-Controlled Pricing"
+    : "Harga Terkontrol oleh Owner"}
+</strong>
+{" "}
+{language === "en"
+  ? "Prices changed from the owner web are automatically reflected in the outlet application."
+  : "Perubahan harga dari web owner secara otomatis diterapkan pada aplikasi outlet."}
       </p>
     </div>
 
@@ -1465,20 +1915,31 @@ export default function TuahKopiCaseStudy() {
       <span>02</span>
 
       <p>
-        <strong>Scheduled Event Pricing</strong>
-        Predefined pricing rules automatically activate
-        according to the configured event schedule.
+        <strong>
+          {language === "en"
+            ? "Scheduled Event Pricing"
+            : "Harga Event Terjadwal"}
+        </strong>
+        {language === "en"
+          ? " Predefined pricing rules automatically activate according to the configured event schedule."
+          : " Aturan harga terjadwal secara otomatis diaktifkan sesuai dengan jadwal event yang telah dikonfigurasi."}
       </p>
     </div>
 
     <div>
       <span>03</span>
 
-      <p>
-        <strong>Automatic App Update</strong>
-        Outlet staff always work with the currently active
-        product price without manually updating each device.
-      </p>
+<p>
+  <strong>
+    {language === "en"
+      ? "Automatic App Update"
+      : "Pembaruan Aplikasi Otomatis"}
+  </strong>
+  {" "}
+  {language === "en"
+    ? "Outlet staff always work with the currently active product price without manually updating each device."
+    : "Staf outlet selalu menggunakan harga produk yang sedang aktif tanpa perlu memperbarui setiap perangkat secara manual."}
+</p>
     </div>
 
   </div>
@@ -1489,8 +1950,14 @@ export default function TuahKopiCaseStudy() {
         <div className="control-pricing-screen">
 
           <div className="control-image-label">
-            <span>03 / OWNER WEB</span>
-            <strong>Product Price Management</strong>
+            <span>
+  03 / {language === "en" ? "OWNER WEB" : "WEB OWNER"}
+</span>
+            <strong>
+              {language === "en"
+                ? "Product Price Management"
+                : "Manajemen Harga Produk"}
+            </strong>
           </div>
 
           <div className="control-browser">
@@ -1533,21 +2000,29 @@ export default function TuahKopiCaseStudy() {
 
       <div>
         <span>OUTLET</span>
-        <strong>Operational Stock</strong>
+        <strong>
+  {language === "en" ? "Operational Stock" : "Stok Operasional"}
+</strong>
       </div>
 
       <i>→</i>
 
       <div>
         <span>CLOUD</span>
-        <strong>Shared Data</strong>
+        <strong>
+  {language === "en" ? "Shared Data" : "Data Bersama"}
+</strong>
       </div>
 
       <i>→</i>
 
       <div>
         <span>OWNER</span>
-        <strong>Monitoring & Control</strong>
+        <strong>
+  {language === "en"
+    ? "Monitoring & Control"
+    : "Pemantauan & Kontrol"}
+</strong>
       </div>
 
     </div>
@@ -1561,7 +2036,9 @@ export default function TuahKopiCaseStudy() {
     <div className="case-section-label">
       <span>08</span>
       <span>/</span>
-      <span>EXPENSE WORKFLOW</span>
+      <span>
+  {language === "en" ? "EXPENSE WORKFLOW" : "ALUR PENGELUARAN"}
+</span>
     </div>
 
     <div className="expenses-heading">
@@ -1570,18 +2047,22 @@ export default function TuahKopiCaseStudy() {
         <span className="expenses-kicker">OUTLET → OWNER</span>
 
         <h2>
-          Record locally.
+          {language === "en"
+            ? "Record locally."
+            : "Catat secara lokal."}
           <br />
-          Monitor <span>centrally.</span>
+  {language === "en" ? "Monitor " : "Pantau "}
+  <span>
+    {language === "en" ? "centrally." : "secara terpusat."}
+  </span>
         </h2>
       </div>
 
-      <p>
-        Outlet expenses are recorded directly through the mobile
-        application and connected to the corresponding outlet.
-        The same data becomes available to the owner for centralized
-        operational monitoring.
-      </p>
+<p>
+  {language === "en"
+    ? "Outlet expenses are recorded directly through the mobile application and connected to the corresponding outlet. The same data becomes available to the owner for centralized operational monitoring."
+    : "Pengeluaran outlet dicatat langsung melalui aplikasi mobile dan terhubung dengan outlet terkait. Data yang sama kemudian tersedia bagi owner untuk pemantauan operasional secara terpusat."}
+</p>
 
     </div>
 
@@ -1597,8 +2078,14 @@ export default function TuahKopiCaseStudy() {
       <article className="expenses-app">
 
         <div className="expenses-screen-label">
-          <span>01 / OUTLET APP</span>
-          <strong>Expense Recording</strong>
+          <span>
+  01 / {language === "en" ? "OUTLET APP" : "APLIKASI OUTLET"}
+</span>
+          <strong>
+  {language === "en"
+    ? "Expense Recording"
+    : "Pencatatan Pengeluaran"}
+</strong>
         </div>
 
         <div className="expenses-phone-frame">
@@ -1625,15 +2112,19 @@ export default function TuahKopiCaseStudy() {
             <Database size={19} />
           </div>
 
-          <span>EXPENSE DATA</span>
+          <span>
+  {language === "en" ? "EXPENSE DATA" : "DATA PENGELUARAN"}
+</span>
 
           <strong>
             Firestore
           </strong>
 
-          <small>
-            Linked by outletId
-          </small>
+<small>
+  {language === "en"
+    ? "Linked by outletId"
+    : "Terhubung melalui outletId"}
+</small>
 
         </div>
 
@@ -1647,8 +2138,14 @@ export default function TuahKopiCaseStudy() {
       <article className="expenses-owner">
 
         <div className="expenses-screen-label">
-          <span>02 / OWNER WEB</span>
-          <strong>Outlet Expense Monitoring</strong>
+          <span>
+  02 / {language === "en" ? "OWNER WEB" : "WEB OWNER"}
+</span>
+          <strong>
+  {language === "en"
+    ? "Outlet Expense Monitoring"
+    : "Pemantauan Pengeluaran Outlet"}
+</strong>
         </div>
 
         <div className="expenses-browser">
@@ -1691,8 +2188,12 @@ export default function TuahKopiCaseStudy() {
         <span>01</span>
 
         <div>
-          <strong>Expense Recorded</strong>
-          <small>Outlet Application</small>
+<strong>
+  {language === "en" ? "Expense Recorded" : "Pengeluaran Dicatat"}
+</strong>
+<small>
+  {language === "en" ? "Outlet Application" : "Aplikasi Outlet"}
+</small>
         </div>
       </div>
 
@@ -1702,8 +2203,10 @@ export default function TuahKopiCaseStudy() {
         <span>02</span>
 
         <div>
-          <strong>Outlet Identified</strong>
-          <small>outletId</small>
+<strong>
+  {language === "en" ? "Outlet Identified" : "Outlet Teridentifikasi"}
+</strong>
+<small>outletId</small>
         </div>
       </div>
 
@@ -1713,8 +2216,12 @@ export default function TuahKopiCaseStudy() {
         <span>03</span>
 
         <div>
-          <strong>Data Stored</strong>
-          <small>Cloud Firestore</small>
+<strong>
+  {language === "en" ? "Data Stored" : "Data Tersimpan"}
+</strong>
+<small>
+  {language === "en" ? "Cloud Firestore" : "Firestore Cloud"}
+</small>
         </div>
       </div>
 
@@ -1724,8 +2231,12 @@ export default function TuahKopiCaseStudy() {
         <span>04</span>
 
         <div>
-          <strong>Owner Monitoring</strong>
-          <small>Owner Web</small>
+<strong>
+  {language === "en" ? "Owner Monitoring" : "Pemantauan Owner"}
+</strong>
+<small>
+  {language === "en" ? "Owner Web" : "Web Owner"}
+</small>
         </div>
       </div>
 
@@ -1740,26 +2251,35 @@ export default function TuahKopiCaseStudy() {
     <div className="case-section-label">
       <span>09</span>
       <span>/</span>
-      <span>ENGINEERING HIGHLIGHTS</span>
+      <span>
+  {language === "en"
+    ? "ENGINEERING HIGHLIGHTS"
+    : "SOROTAN ENGINEERING"}
+</span>
     </div>
 
     <div className="engineering-heading">
 
       <div>
-        <span className="engineering-kicker">BEYOND THE INTERFACE</span>
+        <span className="engineering-kicker">
+  {language === "en"
+    ? "BEYOND THE INTERFACE"
+    : "LEBIH DARI SEKADAR INTERFACE"}
+</span>
 
-        <h2>
-          Built as a system,
-          <br />
-          not just <span>screens.</span>
-        </h2>
+<h2>
+  {language === "en" ? "Built as a system," : "Dibangun sebagai sistem,"}
+  <br />
+  {language === "en" ? "not just " : "bukan sekadar "}
+  <span>{language === "en" ? "screens." : "tampilan."}</span>
+</h2>
       </div>
 
-      <p>
-        Behind the mobile application and owner dashboard is an
-        architecture designed to keep outlet data separated,
-        synchronized, and manageable as the system grows.
-      </p>
+<p>
+  {language === "en"
+    ? "Behind the mobile application and owner dashboard is an architecture designed to keep outlet data separated, synchronized, and manageable as the system grows."
+    : "Di balik aplikasi mobile dan dashboard owner terdapat arsitektur yang dirancang untuk menjaga data setiap outlet tetap terpisah, tersinkronisasi, dan mudah dikelola seiring berkembangnya sistem."}
+</p>
 
     </div>
 
@@ -1771,21 +2291,24 @@ export default function TuahKopiCaseStudy() {
 
         <div className="engineering-card-top">
           <span>01</span>
-          <small>MULTI-OUTLET ARCHITECTURE</small>
+          <small>
+  {language === "en"
+    ? "MULTI-OUTLET ARCHITECTURE"
+    : "ARSITEKTUR MULTI-OUTLET"}
+</small>
         </div>
 
-        <h3>
-          One system.
-          <br />
-          Multiple outlets.
-        </h3>
+<h3>
+  {language === "en" ? "One system." : "Satu sistem."}
+  <br />
+  {language === "en" ? "Multiple outlets." : "Banyak outlet."}
+</h3>
 
-        <p>
-          Operational data is associated with an outlet identity,
-          allowing transactions, expenses, stock, and other records
-          to remain separated while still being accessible through
-          the centralized owner platform.
-        </p>
+<p>
+  {language === "en"
+    ? "Operational data is associated with an outlet identity, allowing transactions, expenses, stock, and other records to remain separated while still being accessible through the centralized owner platform."
+    : "Data operasional dikaitkan dengan identitas masing-masing outlet, sehingga transaksi, pengeluaran, stok, dan data lainnya tetap terpisah namun tetap dapat diakses melalui platform owner yang terpusat."}
+</p>
 
         <div className="engineering-visual outlets-visual">
 
@@ -1815,16 +2338,22 @@ export default function TuahKopiCaseStudy() {
 
         <div className="engineering-card-top">
           <span>02</span>
-          <small>REAL-TIME DATA</small>
+          <small>
+  {language === "en" ? "REAL-TIME DATA" : "DATA REAL-TIME"}
+</small>
         </div>
 
-        <h3>Connected data flow.</h3>
+       <h3>
+  {language === "en"
+    ? "Connected data flow."
+    : "Alur data yang terhubung."}
+</h3>
 
-        <p>
-          Firebase Firestore connects outlet operations with the
-          owner platform, allowing operational information to move
-          through a shared cloud data layer.
-        </p>
+<p>
+  {language === "en"
+    ? "Firebase Firestore connects outlet operations with the owner platform, allowing operational information to move through a shared cloud data layer."
+    : "Firebase Firestore menghubungkan operasional outlet dengan platform owner, sehingga informasi operasional dapat mengalir melalui lapisan data cloud yang digunakan bersama."}
+</p>
 
         <div className="engineering-mini-flow">
           <span>APP</span>
@@ -1842,16 +2371,20 @@ export default function TuahKopiCaseStudy() {
 
         <div className="engineering-card-top">
           <span>03</span>
-          <small>AUTHENTICATION</small>
+          <small>
+  {language === "en" ? "AUTHENTICATION" : "AUTENTIKASI"}
+</small>
         </div>
 
-        <h3>Outlet-level access.</h3>
+        <h3>
+  {language === "en" ? "Outlet-level access." : "Akses khusus per outlet."}
+</h3>
 
-        <p>
-          Firebase Authentication provides authenticated access,
-          while each outlet account is associated with its own
-          operational identity inside the system.
-        </p>
+<p>
+  {language === "en"
+    ? "Firebase Authentication provides authenticated access, while each outlet account is associated with its own operational identity inside the system."
+    : "Firebase Authentication menyediakan akses yang terautentikasi, sementara setiap akun outlet terhubung dengan identitas operasionalnya masing-masing di dalam sistem."}
+</p>
 
         <div className="engineering-code-line">
           <span>AUTH</span>
@@ -1866,17 +2399,24 @@ export default function TuahKopiCaseStudy() {
 
         <div className="engineering-card-top">
           <span>04</span>
-          <small>DYNAMIC CONFIGURATION</small>
+          <small>
+  {language === "en"
+    ? "DYNAMIC CONFIGURATION"
+    : "KONFIGURASI DINAMIS"}
+</small>
         </div>
 
-        <h3>Outlets without hardcoding.</h3>
+        <h3>
+  {language === "en"
+    ? "Outlets without hardcoding."
+    : "Outlet tanpa hardcoding."}
+</h3>
 
-        <p>
-          Outlet information is loaded from a centralized master
-          collection, allowing the platform to support additional
-          outlets without maintaining separate outlet lists across
-          individual pages.
-        </p>
+<p>
+  {language === "en"
+    ? "Outlet information is loaded from a centralized master collection, allowing the platform to support additional outlets without maintaining separate outlet lists across individual pages."
+    : "Informasi outlet dimuat dari master collection yang terpusat, sehingga platform dapat mendukung penambahan outlet tanpa perlu mengelola daftar outlet secara terpisah di setiap halaman."}
+</p>
 
         <div className="engineering-code-line">
           <span>DATA</span>
@@ -1891,35 +2431,49 @@ export default function TuahKopiCaseStudy() {
 
         <div className="engineering-card-top">
           <span>05</span>
-          <small>DYNAMIC PRICING</small>
+          <small>
+  {language === "en"
+    ? "DYNAMIC PRICING"
+    : "HARGA DINAMIS"}
+</small>
         </div>
 
-        <h3>Manual + automated rules.</h3>
+        <h3>
+  {language === "en"
+    ? "Manual + automated rules."
+    : "Aturan manual + otomatis."}
+</h3>
 
-        <p>
-          Product prices can be changed centrally by the owner or
-          activated automatically through scheduled event rules,
-          with active pricing reflected in the outlet application.
-        </p>
+<p>
+  {language === "en"
+    ? "Product prices can be changed centrally by the owner or activated automatically through scheduled event rules, with active pricing reflected in the outlet application."
+    : "Harga produk dapat diubah secara terpusat oleh owner atau diaktifkan secara otomatis melalui aturan event terjadwal, dengan harga aktif langsung diterapkan pada aplikasi outlet."}
+</p>
 
         <div className="engineering-pricing-flow">
           <div>
-            <small>OWNER</small>
-            <strong>Manual Price</strong>
+<small>OWNER</small>
+<strong>
+  {language === "en" ? "Manual Price" : "Harga Manual"}
+</strong>
           </div>
 
           <span>+</span>
 
           <div>
             <small>EVENT</small>
-            <strong>Scheduled Rule</strong>
+            <strong>
+              {language === "en" ? "Scheduled Rule" : "Aturan Terjadwal"}
+            </strong>
           </div>
 
           <i>→</i>
 
           <div>
-            <small>ACTIVE</small>
-            <strong>App Price</strong>
+<small>ACTIVE</small>
+<strong>
+  {language === "en" ? "App Price" : "Harga Aplikasi"}
+</strong>
           </div>
         </div>
 
@@ -1931,23 +2485,25 @@ export default function TuahKopiCaseStudy() {
 
         <div className="engineering-card-top">
           <span>06</span>
-          <small>RESPONSIVE SYSTEM</small>
+          <small>
+            {language === "en" ? "RESPONSIVE SYSTEM" : "SISTEM RESPONSIF"}
+          </small>
         </div>
 
         <div className="engineering-wide-content">
 
           <div>
-            <h3>
-              Designed across
-              <br />
-              different screens.
-            </h3>
+<h3>
+  {language === "en" ? "Designed across" : "Dirancang untuk"}
+  <br />
+  {language === "en" ? "different screens." : "berbagai ukuran layar."}
+</h3>
 
-            <p>
-              The outlet application adapts across Android phones
-              and tablets, while the owner platform is designed as
-              a responsive web dashboard for operational monitoring.
-            </p>
+<p>
+  {language === "en"
+    ? "The outlet application adapts across Android phones and tablets, while the owner platform is designed as a responsive web dashboard for operational monitoring."
+    : "Aplikasi outlet beradaptasi pada berbagai perangkat Android, mulai dari ponsel hingga tablet, sementara platform owner dirancang sebagai web dashboard responsif untuk pemantauan operasional."}
+</p>
           </div>
 
           <div className="engineering-device-types">
@@ -1984,26 +2540,31 @@ export default function TuahKopiCaseStudy() {
     <div className="case-section-label">
       <span>10</span>
       <span>/</span>
-      <span>TECHNOLOGY STACK</span>
+      <span>
+  {language === "en" ? "TECHNOLOGY STACK" : "STACK TEKNOLOGI"}
+</span>
     </div>
 
     <div className="technology-heading">
 
       <div>
-        <span className="technology-kicker">BUILT WITH</span>
+        <span className="technology-kicker">
+  {language === "en" ? "BUILT WITH" : "DIBANGUN DENGAN"}
+</span>
 
-        <h2>
-          The technology
-          <br />
-          behind the <span>system.</span>
-        </h2>
+<h2>
+  {language === "en" ? "The technology" : "Teknologi"}
+  <br />
+  {language === "en" ? "behind the " : "di balik "}
+  <span>{language === "en" ? "system." : "sistem."}</span>
+</h2>
       </div>
 
-      <p>
-        The platform combines mobile, web, authentication,
-        cloud database, and development tools into one
-        connected operational system.
-      </p>
+<p>
+  {language === "en"
+    ? "The platform combines mobile, web, authentication, cloud database, and development tools into one connected operational system."
+    : "Platform ini menggabungkan aplikasi mobile, web, autentikasi, database cloud, dan development tools ke dalam satu sistem operasional yang saling terhubung."}
+</p>
 
     </div>
 
@@ -2015,21 +2576,27 @@ export default function TuahKopiCaseStudy() {
 
         <div className="technology-platform-number">01</div>
 
-        <span className="technology-platform-label">
-          OUTLET APPLICATION
-        </span>
+<span className="technology-platform-label">
+  {language === "en" ? "OUTLET APPLICATION" : "APLIKASI OUTLET"}
+</span>
 
-        <h3>Mobile</h3>
+       <h3>
+  {language === "en" ? "Mobile" : "Aplikasi Mobile"}
+</h3>
 
         <div className="technology-items">
           <div>
-            <strong>Flutter</strong>
-            <small>Application Framework</small>
+<strong>Flutter</strong>
+<small>
+  {language === "en" ? "Application Framework" : "Framework Aplikasi"}
+</small>
           </div>
 
           <div>
             <strong>Dart</strong>
-            <small>Programming Language</small>
+            <small>
+              {language === "en" ? "Programming Language" : "Bahasa Pemrograman"}
+            </small>
           </div>
         </div>
 
@@ -2048,21 +2615,25 @@ export default function TuahKopiCaseStudy() {
 
         <div className="technology-platform-number">02</div>
 
-        <span className="technology-platform-label">
-          CLOUD INFRASTRUCTURE
-        </span>
+<span className="technology-platform-label">
+  {language === "en" ? "CLOUD INFRASTRUCTURE" : "INFRASTRUKTUR CLOUD"}
+</span>
 
         <h3>Firebase</h3>
 
         <div className="technology-items">
           <div>
-            <strong>Cloud Firestore</strong>
-            <small>Operational Database</small>
+<strong>Cloud Firestore</strong>
+<small>
+  {language === "en" ? "Operational Database" : "Database Operasional"}
+</small>
           </div>
 
           <div>
-            <strong>Firebase Auth</strong>
-            <small>Authentication</small>
+<strong>Firebase Auth</strong>
+<small>
+  {language === "en" ? "Authentication" : "Autentikasi"}
+</small>
           </div>
         </div>
 
@@ -2081,21 +2652,27 @@ export default function TuahKopiCaseStudy() {
 
         <div className="technology-platform-number">03</div>
 
-        <span className="technology-platform-label">
-          OWNER PLATFORM
-        </span>
+<span className="technology-platform-label">
+  {language === "en" ? "OWNER PLATFORM" : "PLATFORM OWNER"}
+</span>
 
         <h3>Web</h3>
 
         <div className="technology-items">
           <div>
-            <strong>Next.js</strong>
-            <small>Web Framework</small>
+<strong>Next.js</strong>
+<small>
+  {language === "en" ? "Web Framework" : "Framework Web"}
+</small>
           </div>
 
           <div>
-            <strong>TypeScript</strong>
-            <small>Application Language</small>
+<strong>TypeScript</strong>
+<small>
+  {language === "en"
+    ? "Application Language"
+    : "Bahasa Aplikasi"}
+</small>
           </div>
         </div>
 
@@ -2109,31 +2686,43 @@ export default function TuahKopiCaseStudy() {
     <div className="technology-tooling">
 
       <div className="technology-tooling-title">
-        <span>DEVELOPMENT WORKFLOW</span>
+        <span>
+  {language === "en"
+    ? "DEVELOPMENT WORKFLOW"
+    : "ALUR DEVELOPMENT"}
+</span>
 
-        <strong>
-          Tools used to build and maintain the system.
-        </strong>
+<strong>
+  {language === "en"
+    ? "Tools used to build and maintain the system."
+    : "Tool yang digunakan untuk membangun dan memelihara sistem."}
+</strong>
       </div>
 
       <div className="technology-tooling-items">
 
         <div>
           <span>01</span>
-          <strong>Git</strong>
-          <small>Version Control</small>
+<strong>Git</strong>
+<small>
+  {language === "en" ? "Version Control" : "Kontrol Versi"}
+</small>
         </div>
 
         <div>
           <span>02</span>
-          <strong>GitHub</strong>
-          <small>Source Repository</small>
+<strong>GitHub</strong>
+<small>
+  {language === "en" ? "Source Repository" : "Repositori Sumber Kode"}
+</small>
         </div>
 
         <div>
           <span>03</span>
           <strong>VS Code</strong>
-          <small>Development Environment</small>
+          <small>
+            {language === "en" ? "Development Environment" : "Lingkungan Pengembangan"}
+          </small>
         </div>
 
       </div>
@@ -2149,26 +2738,35 @@ export default function TuahKopiCaseStudy() {
     <div className="case-section-label">
       <span>11</span>
       <span>/</span>
-      <span>PROJECT OUTCOME</span>
+      <span>
+  {language === "en" ? "PROJECT OUTCOME" : "HASIL PROYEK"}
+</span>
     </div>
 
     <div className="outcome-heading">
 
       <div>
-        <span className="outcome-kicker">THE RESULT</span>
+        <span className="outcome-kicker">
+  {language === "en" ? "THE RESULT" : "HASIL AKHIR"}
+</span>
 
-        <h2>
-          From separate tasks
-          <br />
-          to one <span>connected system.</span>
-        </h2>
+<h2>
+  {language === "en"
+    ? "From separate tasks"
+    : "Dari proses yang terpisah"}
+  <br />
+  {language === "en" ? "to one " : "menjadi satu "}
+  <span>
+    {language === "en" ? "connected system." : "sistem yang terhubung."}
+  </span>
+</h2>
       </div>
 
-      <p>
-        Tuah Kopi brings core outlet operations and owner-level
-        monitoring into a shared digital ecosystem, connecting
-        day-to-day activities with centralized business control.
-      </p>
+<p>
+  {language === "en"
+    ? "Tuah Kopi brings core outlet operations and owner-level monitoring into a shared digital ecosystem, connecting day-to-day activities with centralized business control."
+    : "Tuah Kopi menyatukan operasional utama outlet dan pemantauan oleh owner dalam satu ekosistem digital, menghubungkan aktivitas harian dengan pengelolaan bisnis secara terpusat."}
+</p>
 
     </div>
 
@@ -2179,14 +2777,18 @@ export default function TuahKopiCaseStudy() {
         <span>01</span>
 
         <div>
-          <small>CENTRALIZED VISIBILITY</small>
-          <h3>One place to monitor the business.</h3>
+          <small>
+            {language === "en" ? "CENTRALIZED VISIBILITY" : "VISIBILITAS TERPUSAT"}
+          </small>
+          <h3>
+            {language === "en" ? "One place to monitor the business." : "Satu tempat untuk memantau seluruh bisnis."}
+          </h3>
 
-          <p>
-            Sales, transactions, expenses, outlet performance,
-            purchase orders, and operational information can be
-            viewed through the owner platform.
-          </p>
+<p>
+  {language === "en"
+    ? "Sales, transactions, expenses, outlet performance, purchase orders, and operational information can be viewed through the owner platform."
+    : "Penjualan, transaksi, pengeluaran, performa outlet, purchase order, dan informasi operasional dapat dipantau melalui platform owner."}
+</p>
         </div>
       </article>
 
@@ -2195,14 +2797,20 @@ export default function TuahKopiCaseStudy() {
         <span>02</span>
 
         <div>
-          <small>CONNECTED OPERATIONS</small>
-          <h3>Outlet activity flows into the same ecosystem.</h3>
+          <small>
+  {language === "en" ? "CONNECTED OPERATIONS" : "OPERASIONAL TERINTEGRASI"}
+</small>
+          <h3>
+  {language === "en"
+    ? "Outlet activity flows into the same ecosystem."
+    : "Aktivitas outlet terhubung dalam satu ekosistem."}
+</h3>
 
-          <p>
-            The mobile application handles day-to-day outlet
-            operations while relevant data is synchronized with
-            the centralized web platform.
-          </p>
+<p>
+  {language === "en"
+    ? "The mobile application handles day-to-day outlet operations while relevant data is synchronized with the centralized web platform."
+    : "Aplikasi mobile menangani aktivitas operasional harian outlet, sementara data yang relevan disinkronkan dengan platform web terpusat."}
+</p>
         </div>
       </article>
 
@@ -2211,14 +2819,19 @@ export default function TuahKopiCaseStudy() {
         <span>03</span>
 
         <div>
-          <small>MULTI-OUTLET FOUNDATION</small>
-          <h3>Designed to grow beyond a single outlet.</h3>
+          <small>
+            {language === "en" ? "MULTI-OUTLET FOUNDATION" : "FONDASI MULTI OUTLET"}
+          </small>
+          <h3>
+            {language === "en"
+              ? "Designed to grow beyond a single outlet."
+              : "Dirancang untuk tumbuh melebihi satu outlet."}
+          </h3>
 
           <p>
-            Outlet-based data architecture and a centralized
-            outlet master allow the system to support additional
-            locations without rebuilding individual pages around
-            hardcoded outlet lists.
+            {language === "en"
+              ? "Outlet-based data architecture and a centralized outlet master allow the system to support additional locations without rebuilding individual pages around hardcoded outlet lists."
+              : "Arsitektur data berbasis outlet dan master outlet terpusat memungkinkan sistem untuk mendukung lokasi tambahan tanpa perlu membangun ulang halaman individual di sekitar daftar outlet yang telah di HARD CODE."}
           </p>
         </div>
       </article>
@@ -2228,13 +2841,19 @@ export default function TuahKopiCaseStudy() {
         <span>04</span>
 
         <div>
-          <small>AUTOMATED BUSINESS RULES</small>
-          <h3>Less manual operational configuration.</h3>
+          <small>
+            {language === "en" ? "AUTOMATED BUSINESS RULES" : "ATURAN BISNIS OTOMATIS"}
+          </small>
+          <h3>
+            {language === "en"
+              ? "Less manual operational configuration."
+              : "Lebih sedikit konfigurasi operasional manual."}
+          </h3>
 
           <p>
-            Centralized pricing synchronization and scheduled
-            event pricing allow active product prices to update
-            automatically across the outlet application.
+            {language === "en"
+              ? "Centralized pricing synchronization and scheduled event pricing allow active product prices to update automatically across the outlet application."
+              : "Sinkronisasi harga terpusat dan harga acara terjadwal memungkinkan harga produk aktif untuk diperbarui secara otomatis di seluruh aplikasi outlet."}
           </p>
         </div>
       </article>
@@ -2244,15 +2863,19 @@ export default function TuahKopiCaseStudy() {
 
     <div className="outcome-statement">
 
-      <span>PROJECT SUMMARY</span>
+        <span>
+    {language === "en" ? "PROJECT SUMMARY" : "RINGKASAN PROYEK"}
+  </span>
 
       <p>
-        The result is not simply an outlet application
-        and an admin dashboard.
+        {language === "en"
+          ? "The result is not simply an outlet application and an admin dashboard."
+          : "Hasilnya bukan hanya sekedar aplikasi outlet dan dasbor admin."}
         <strong>
-          It is a connected operational system built around
-          how the business actually works.
-        </strong>
+      {language === "en"
+        ? "It is a connected operational system built around how the business actually works."
+        : "Ini adalah sistem operasional terintegrasi yang dibangun berdasarkan cara bisnis tersebut benar-benar berjalan."}
+    </strong>
       </p>
 
     </div>
@@ -2266,43 +2889,40 @@ export default function TuahKopiCaseStudy() {
     <div className="case-closing-inner">
 
       <div className="case-closing-label">
-        <span>END OF CASE STUDY</span>
+        <span>
+          {language === "en" ? "END OF CASE STUDY" : "AKHIR STUDI KASUS"}
+        </span>
         <i />
         <span>TUAH KOPI / 2026</span>
       </div>
 
       <div className="case-closing-content">
 
-        <h2>
-          Have a system
-          <br />
-          <span>in mind?</span>
-        </h2>
+<h2>
+  {language === "en" ? "Have a system" : "Punya ide sistem"}
+  <br />
+  <span>{language === "en" ? "in mind?" : "untuk dibangun?"}</span>
+</h2>
 
         <div className="case-closing-right">
 
-          <p>
-            I&apos;m interested in building practical digital
-            systems that solve real operational problems.
-          </p>
+<p>
+  {language === "en"
+    ? "I'm interested in building practical digital systems that solve real operational problems."
+    : "Saya tertarik membangun sistem digital yang praktis untuk menyelesaikan permasalahan operasional nyata."}
+</p>
 
           <div className="case-closing-actions">
 
-            <Link
-              href="/projects"
-              className="case-closing-secondary"
-            >
-              <ArrowLeft size={16} />
-              Back to Projects
-            </Link>
+          <Link href="/projects" className="case-closing-secondary">
+  <ArrowLeft size={16} />
+  {language === "en" ? "Back to Projects" : "Kembali ke Proyek"}
+</Link>
 
-            <Link
-              href="/#contact"
-              className="case-closing-primary"
-            >
-              Let&apos;s Talk
-              <ArrowUpRight size={17} />
-            </Link>
+<Link href="/#contact" className="case-closing-primary">
+  {language === "en" ? "Let's Talk" : "Mari Bicara"}
+  <ArrowUpRight size={17} />
+</Link>
 
           </div>
 
@@ -2311,7 +2931,9 @@ export default function TuahKopiCaseStudy() {
       </div>
 
       <div className="case-closing-signature">
-        <span>DESIGNED & DEVELOPED BY</span>
+        <span>
+          {language === "en" ? "DESIGNED & DEVELOPED BY" : "DESAIN & DIKEMBANGKAN OLEH"}
+        </span>
         <strong>Fazlur Rahman</strong>
       </div>
 

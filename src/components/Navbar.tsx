@@ -2,41 +2,44 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Menu, X, ArrowUpRight } from "lucide-react";
-
-const navItems = [
-  {
-    label: "Home",
-    href: "/",
-    path: "/",
-  },
-  {
-    label: "Projects",
-    href: "/projects",
-    path: "/projects",
-  },
-  {
-    label: "Services",
-    href: "/#services",
-    path: null,
-  },
-  {
-    label: "About",
-    href: "/about",
-    path: "/about",
-  },
-  {
-    label: "Contact",
-    href: "/contact",
-    path: "/contact",
-  },
-];
+import { usePathname, useRouter } from "next/navigation";
+import { Menu, X, ArrowUpRight, LogOut } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-
   const pathname = usePathname();
+  const router = useRouter();
+
+  const { language, setLanguage } = useLanguage();
+
+  const navItems = [
+    {
+      label: language === "id" ? "Beranda" : "Home",
+      href: "/",
+      path: "/",
+    },
+    {
+      label: language === "id" ? "Proyek" : "Projects",
+      href: "/projects",
+      path: "/projects",
+    },
+    {
+      label: language === "id" ? "Layanan" : "Services",
+      href: "/#services",
+      path: null,
+    },
+    {
+      label: language === "id" ? "Tentang" : "About",
+      href: "/about",
+      path: "/about",
+    },
+    {
+      label: language === "id" ? "Kontak" : "Contact",
+      href: "/contact",
+      path: "/contact",
+    },
+  ];
 
   const closeMenu = () => {
     setMenuOpen(false);
@@ -50,6 +53,16 @@ export default function Navbar() {
     }
 
     return pathname.startsWith(path);
+  };
+
+  const changeLanguage = (newLanguage: "id" | "en") => {
+    setLanguage(newLanguage);
+  };
+
+  const exitPortfolio = () => {
+    closeMenu();
+    // Navigasi ke Welcome tanpa menghapus riwayat Chrome.
+    router.push("/welcome");
   };
 
   return (
@@ -81,7 +94,7 @@ export default function Navbar() {
         <div className="navbar-links">
           {navItems.map((item) => (
             <Link
-              key={item.label}
+              key={item.href}
               href={item.href}
               className={
                 isActive(item.path)
@@ -100,14 +113,29 @@ export default function Navbar() {
           <div className="navbar-language">
             <button
               type="button"
-              className="active"
+              className={
+                language === "id"
+                  ? "active"
+                  : ""
+              }
+              onClick={() => changeLanguage("id")}
+              aria-pressed={language === "id"}
             >
               ID
             </button>
 
             <span>|</span>
 
-            <button type="button">
+            <button
+              type="button"
+              className={
+                language === "en"
+                  ? "active"
+                  : ""
+              }
+              onClick={() => changeLanguage("en")}
+              aria-pressed={language === "en"}
+            >
               EN
             </button>
           </div>
@@ -116,10 +144,31 @@ export default function Navbar() {
             href="/contact"
             className="navbar-cta"
           >
-            Let&apos;s Talk
+            {language === "id"
+              ? "Mari Bicara"
+              : "Let's Talk"}
 
             <ArrowUpRight size={16} />
           </Link>
+          
+          <button
+            type="button"
+            className="navbar-exit-button"
+            onClick={exitPortfolio}
+            title={
+              language === "id"
+                ? "Keluar dari Portfolio"
+                : "Exit Portfolio"
+            }
+            aria-label={
+              language === "id"
+                ? "Keluar dari Portfolio"
+                : "Exit Portfolio"
+            }
+          >
+            <LogOut size={18} strokeWidth={1.8} />
+          </button>
+
 
         </div>
 
@@ -129,8 +178,12 @@ export default function Navbar() {
           className="navbar-menu-button"
           aria-label={
             menuOpen
-              ? "Close navigation menu"
-              : "Open navigation menu"
+              ? language === "id"
+                ? "Tutup menu navigasi"
+                : "Close navigation menu"
+              : language === "id"
+                ? "Buka menu navigasi"
+                : "Open navigation menu"
           }
           aria-expanded={menuOpen}
           onClick={() =>
@@ -157,7 +210,7 @@ export default function Navbar() {
 
         {navItems.map((item) => (
           <Link
-            key={item.label}
+            key={item.href}
             href={item.href}
             className={
               isActive(item.path)
@@ -174,14 +227,29 @@ export default function Navbar() {
 
           <button
             type="button"
-            className="active"
+            className={
+              language === "id"
+                ? "active"
+                : ""
+            }
+            onClick={() => changeLanguage("id")}
+            aria-pressed={language === "id"}
           >
             ID
           </button>
 
           <span>|</span>
 
-          <button type="button">
+          <button
+            type="button"
+            className={
+              language === "en"
+                ? "active"
+                : ""
+            }
+            onClick={() => changeLanguage("en")}
+            aria-pressed={language === "en"}
+          >
             EN
           </button>
 
@@ -192,10 +260,28 @@ export default function Navbar() {
           className="navbar-cta"
           onClick={closeMenu}
         >
-          Let&apos;s Talk
+          {language === "id"
+            ? "Mari Bicara"
+            : "Let's Talk"}
 
           <ArrowUpRight size={16} />
         </Link>
+        
+        <button
+          type="button"
+          className="navbar-exit-button navbar-exit-mobile"
+          onClick={exitPortfolio}
+        >
+          <LogOut size={17} strokeWidth={1.8} />
+
+          <span>
+            {language === "id"
+              ? "Keluar dari Portfolio"
+              : "Exit Portfolio"}
+          </span>
+        </button>
+
+
 
       </div>
     </header>

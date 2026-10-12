@@ -1,10 +1,13 @@
+"use client";
+
 import {
   ArrowLeft,
   ArrowUpRight,
-  Link,
   Mail,
   MessageCircle,
 } from "lucide-react";
+
+import Link from "next/link";
 
 import {
   FaGithub,
@@ -13,8 +16,11 @@ import {
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ContactPage() {
+  const { language } = useLanguage();
+
   return (
     <>
       <Navbar />
@@ -29,14 +35,18 @@ export default function ContactPage() {
               TOP NAVIGATION
           ====================================================== */}
 
-          <div className="contact-page-top">
-            <Link href="/" className="contact-page-back">
-              <ArrowLeft size={16} />
-              Back to Home
-            </Link>
+<div className="contact-page-top">
+  <Link href="/" className="contact-page-back">
+    <ArrowLeft size={16} />
+    {language === "en" ? "Back to Home" : "Kembali ke Beranda"}
+  </Link>
 
-            <span>AVAILABLE FOR PROJECTS</span>
-          </div>
+  <span>
+    {language === "en"
+      ? "AVAILABLE FOR PROJECTS"
+      : "TERBUKA UNTUK PROYEK"}
+  </span>
+</div>
 
 
           {/* =====================================================
@@ -44,23 +54,31 @@ export default function ContactPage() {
           ====================================================== */}
 
           <section className="contact-page-hero">
-            <div className="contact-page-label">
-              <span>01</span>
-              <span>/</span>
-              <span>CONTACT</span>
-            </div>
+<div className="contact-page-label">
+  <span>01</span>
+  <span>/</span>
+  <span>
+    {language === "en" ? "CONTACT" : "KONTAK"}
+  </span>
+</div>
 
             <div className="contact-page-title-row">
-              <h1>
-                Let&apos;s build something
-                <br />
-                <span>that actually works.</span>
-              </h1>
+<h1>
+  {language === "en"
+    ? "Let's build something"
+    : "Mari bangun sesuatu"}
+  <br />
+  <span>
+    {language === "en"
+      ? "that actually works."
+      : "yang benar-benar berfungsi."}
+  </span>
+</h1>
 
               <p>
-                Have a project, business problem, or system you want to
-                discuss? Tell me what you&apos;re trying to solve and
-                let&apos;s see what we can build.
+                {language === "en"
+                  ? "Have a project, business problem, or system you want to discuss? Tell me what you're trying to solve and let's see what we can build."
+                  : "Punya proyek, masalah bisnis, atau sistem yang ingin Anda diskusikan? Ceritakan pada saya apa yang sedang Anda hadapi dan mari kita lihat apa yang bisa kita bangun."}
               </p>
             </div>
           </section>
@@ -75,20 +93,28 @@ export default function ContactPage() {
             {/* LEFT SIDE */}
 
             <div className="contact-page-conversation">
-              <div className="contact-page-section-label">
-                <span>START A CONVERSATION</span>
-              </div>
+<div className="contact-page-section-label">
+  <span>
+    {language === "en"
+      ? "START A CONVERSATION"
+      : "MULAI PERCAKAPAN"}
+  </span>
+</div>
 
-              <h2>
-                The easiest way to start
-                <br />
-                is simply to say hello.
-              </h2>
+<h2>
+  {language === "en"
+    ? "The easiest way to start"
+    : "Cara termudah untuk memulai"}
+  <br />
+  {language === "en"
+    ? "is simply to say hello."
+    : "adalah dengan menyapa."}
+</h2>
 
               <p className="contact-page-conversation-copy">
-                You don&apos;t need a complete technical plan. Tell me
-                about your idea, workflow, or problem and we can figure
-                out the right direction from there.
+                {language === "en"
+                  ? "You don't need a complete technical plan. Tell me about your idea, workflow, or problem and we can figure out the right direction from there."
+                  : "Anda tidak perlu rencana teknis yang lengkap. Ceritakan pada saya ide, alur kerja, atau masalah Anda dan kita bisa menentukan arah yang tepat dari sana."}
               </p>
 
 
@@ -105,10 +131,14 @@ export default function ContactPage() {
                   <MessageCircle size={21} />
                 </div>
 
-                <div className="contact-method-copy">
-                  <span>WHATSAPP</span>
-                  <strong>Start a conversation</strong>
-                </div>
+<div className="contact-method-copy">
+  <span>WHATSAPP</span>
+  <strong>
+    {language === "en"
+      ? "Start a conversation"
+      : "Mulai percakapan"}
+  </strong>
+</div>
 
                 <ArrowUpRight
                   className="contact-method-arrow"
@@ -153,10 +183,14 @@ export default function ContactPage() {
                   <FaLinkedin size={21} />
                 </div>
 
-                <div className="contact-method-copy">
-                  <span>LINKEDIN</span>
-                  <strong>Connect professionally</strong>
-                </div>
+<div className="contact-method-copy">
+  <span>LINKEDIN</span>
+  <strong>
+    {language === "en"
+      ? "Connect professionally"
+      : "Bangun koneksi profesional"}
+  </strong>
+</div>
 
                 <ArrowUpRight
                   className="contact-method-arrow"
@@ -178,10 +212,14 @@ export default function ContactPage() {
                   <FaGithub size={21} />
                 </div>
 
-                <div className="contact-method-copy">
-                  <span>GITHUB</span>
-                  <strong>Explore my code</strong>
-                </div>
+<div className="contact-method-copy">
+  <span>GITHUB</span>
+  <strong>
+    {language === "en"
+      ? "Explore my code"
+      : "Jelajahi kode saya"}
+  </strong>
+</div>
 
                 <ArrowUpRight
                   className="contact-method-arrow"
@@ -194,59 +232,74 @@ export default function ContactPage() {
             {/* RIGHT SIDE */}
 
             <div className="contact-page-project">
-              <div className="contact-page-section-label">
-                <span>PROJECT DETAILS</span>
-              </div>
+<div className="contact-page-section-label">
+  <span>
+    {language === "en" ? "PROJECT DETAILS" : "DETAIL PROYEK"}
+  </span>
+</div>
 
-              <h2>
-                What are you looking
-                <br />
-                to build?
-              </h2>
+<h2>
+  {language === "en"
+    ? "What are you looking"
+    : "Apa yang ingin"}
+  <br />
+  {language === "en"
+    ? "to build?"
+    : "Anda bangun?"}
+</h2>
 
-              <p className="contact-page-project-copy">
-                I work on digital systems designed around real
-                operational needs—from customer-facing products to
-                internal business tools.
-              </p>
+<p className="contact-page-project-copy">
+  {language === "en"
+    ? "I work on digital systems designed around real operational needs—from customer-facing products to internal business tools."
+    : "Saya mengembangkan sistem digital berdasarkan kebutuhan operasional nyata, mulai dari produk yang digunakan pelanggan hingga sistem internal untuk mendukung bisnis."}
+</p>
 
               <div className="contact-project-types">
 
-                <div className="contact-project-type">
-                  <span>01</span>
+<div className="contact-project-type">
+  <span>01</span>
 
-                  <div>
-                    <strong>Web Application</strong>
-                    <p>
-                      Dashboards, management systems, and responsive
-                      web applications.
-                    </p>
-                  </div>
-                </div>
+  <div>
+    <strong>
+      {language === "en" ? "Web Application" : "Aplikasi Web"}
+    </strong>
+    <p>
+      {language === "en"
+        ? "Dashboards, management systems, and responsive web applications."
+        : "Dashboard, sistem manajemen, dan aplikasi web yang responsif di berbagai perangkat."}
+    </p>
+  </div>
+</div>
 
-                <div className="contact-project-type">
-                  <span>02</span>
+<div className="contact-project-type">
+  <span>02</span>
 
-                  <div>
-                    <strong>Mobile Application</strong>
-                    <p>
-                      Mobile tools and operational applications built
-                      around real workflows.
-                    </p>
-                  </div>
-                </div>
+  <div>
+    <strong>
+      {language === "en" ? "Mobile Application" : "Aplikasi Mobile"}
+    </strong>
+    <p>
+      {language === "en"
+        ? "Mobile tools and operational applications built around real workflows."
+        : "Aplikasi mobile dan perangkat operasional digital yang dikembangkan sesuai dengan alur kerja nyata."}
+    </p>
+  </div>
+</div>
 
-                <div className="contact-project-type">
-                  <span>03</span>
+<div className="contact-project-type">
+  <span>03</span>
 
-                  <div>
-                    <strong>Business System</strong>
-                    <p>
-                      Connected systems for transactions, operations,
-                      reporting, inventory, and business processes.
-                    </p>
-                  </div>
-                </div>
+  <div>
+    <strong>
+      {language === "en" ? "Business System" : "Sistem Bisnis"}
+    </strong>
+    <p>
+      {language === "en"
+        ? "Connected systems for transactions, operations, reporting, inventory, and business processes."
+        : "Sistem terintegrasi untuk transaksi, operasional, pelaporan, inventaris, dan berbagai proses bisnis."}
+    </p>
+  </div>
+</div>
 
               </div>
 
@@ -259,10 +312,18 @@ export default function ContactPage() {
                 rel="noopener noreferrer"
                 className="contact-project-cta"
               >
-                <div>
-                  <span>HAVE SOMETHING ELSE IN MIND?</span>
-                  <strong>Tell me about your project</strong>
-                </div>
+<div>
+  <span>
+    {language === "en"
+      ? "HAVE SOMETHING ELSE IN MIND?"
+      : "PUNYA IDE LAIN?"}
+  </span>
+  <strong>
+    {language === "en"
+      ? "Tell me about your project"
+      : "Ceritakan proyek Anda"}
+  </strong>
+</div>
 
                 <ArrowUpRight size={20} />
               </a>
@@ -275,14 +336,15 @@ export default function ContactPage() {
               BOTTOM NOTE
           ====================================================== */}
 
-          <div className="contact-page-bottom">
-            <span />
+<div className="contact-page-bottom">
+  <span />
 
-            <p>
-              Every project starts with understanding the problem
-              before deciding what needs to be built.
-            </p>
-          </div>
+  <p>
+    {language === "en"
+      ? "Every project starts with understanding the problem before deciding what needs to be built."
+      : "Setiap proyek dimulai dengan memahami masalah sebelum menentukan apa yang perlu dibangun."}
+  </p>
+</div>
 
         </div>
       </main>
